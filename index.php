@@ -1,8 +1,22 @@
-<?php
-include 'header.php'
-?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <?php
+    //Ubacuje css, bootstrap i ostalo
+    include_once 'head.php';
+    ?>
+    <!-- title nisam ukljucio u head.php jer ce da se menja u zavisnosti od stranice -->
+    <title>Laptopdrom | specijalizovan sajt za polovne laptopove</title>
+</head>
 
 <body>
+
+    <?php
+    include_once 'header.php';
+    ?>
+
+
     <main>
         <div class="container-fluid">
 
