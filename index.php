@@ -1,324 +1,272 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <title>Pocetna</title>
-<style>
-    * {
-    font-family: sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.card {
-    display: inline-block;
-}
-
-.card img {
-    height: 160px;
-    ;
-}
-
-header {
-    margin-bottom: 0;
-    font-family: 'Courier New', Courier, monospace;
-}
-   </style>
-</head>
+<?php
+include 'header.php'
+?>
 
 <body>
-
-    <?php
-    include 'navbar.php'
-    ?>
-
     <main>
         <div class="container-fluid">
 
             <div class="row py-2">
-                <div class="col-md-2 bg-light">
-                    <div class="wrapper">
-                        <!-- Sidebar -->
-                        <nav id="sidebar">
-                            <div class="sidebar-header">
-                                <h4>Napredna pretraga</h4>
+                <!-- side bar left -->
+                <div class="col-md-2  bg-light">
+                    <h4 class="h4">Napredna pretraga</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="procesor">Procesor</label>
+                            <select class="form-control" id="procesor" name="procesor">
+                                <option value="">Nebitno</option>
+                                <option>AMD</option>
+                                <option>Intel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ram">RAM</label>
+                            <select class="form-control" id="ram" name="ram">
+                                <option value="">Nebitno</option>
+                                <option value="4">4 GB</option>
+                                <option value="6">6 GB</option>
+                                <option value="8">8 GB</option>
+                                <option value="12">12 GB</option>
+                                <option value="16">16 GB</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="graficka">Grafička</label>
+                            <select class="form-control" id="graficka" name="graficka">
+                                <option value="">Nebitno</option>
+                                <option value="integrisana">Integrisana</option>
+                                <option value="nvidia">Nvidia</option>
+                                <option value="amd">AMD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hdd">HDD</label>
+                            <select class="form-control" id="hdd" name="hdd">
+                                <option value="">Nebitno</option>
+                                <option value="500">500 GB</option>
+                                <option value="1000">1 TB</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ssd">SSD</label>
+                            <select class="form-control" id="ssd" name="ssd">
+                                <option value="">Nebitno</option>
+                                <option value="128">128 GB</option>
+                                <option value="256">256 GB</option>
+                                <option value="512">512 GB</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-lg btn-primary px-4">Traži</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- main -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/dell.jfif">
+                            <div class="card-body">
+                                <h5 class="card-title">DELL Inspiron</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">200e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td class="w-100">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
                             </div>
-
-                            <ul class="list-unstyled components">
-                                <p>Filtriraj</p>
-                                <li class="active">
-                                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle">Procesor</a>
-                                    <ul class="collapse list-unstyled small" id="homeSubmenu">
-                                        <li>
-                                            <a class="text-warning" href="#">Intel</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-warning" href="#">AMD</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">RAM</a>
-                                </li>
-                                <li>
-                                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle">Grafička kartica</a>
-                                    <ul class="collapse list-unstyled small" id="pageSubmenu">
-                                        <li>
-                                            <a class="text-warning" href="#">Integrisana</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-warning" href="#">NVidia</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-warning" href="#">ATI Radeon</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Hard disk</a>
-                                </li>
-                                <li>
-                                    <a href="#">Ostalo</a>
-                                </li>
-                            </ul>
-                        </nav>
-
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/dell1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">DELL Inspiron</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">250e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td style="width: 100%;">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">2/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/dell2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">DELL Inspiron</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">300e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td style="width: 100%;">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/len.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Lenovo Thinkpad</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">150e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td style="width: 100%;">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">1/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/dell.jfif">
+                            <div class="card-body">
+                                <h5 class="card-title">DELL Inspiron</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">200e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td class="w-100">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/dell1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">DELL Inspiron</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">250e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td style="width: 100%;">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">2/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/dell2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">DELL Inspiron</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">300e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td style="width: 100%;">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
+                        <div class="card col-xl-3 col-lg-4 col-sm-6 mb-2">
+                            <img class="card-img-top" src="assets/images/len.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Lenovo Thinkpad</h5>
+                                <table>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td class="text-danger">150e</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ocena: </td>
+                                        <td style="width: 100%;">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">1/5</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="card-text">Quick sample text to create the card title and make up the body of the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary w-100">Detaljnije</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Side bar right -->
+                <div class="col-md-2 bg-light text-center">
+                    <button class="btn btn-lg btn-danger text-center" type="submit">OBJAVI OGLAS</button>
 
-                <div class="col-md-7">
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="assets/images/dell.jfif" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">DELL Inspiron</h5>
-                            <table>
-                                <tr>
-                                    <td>Cena:</td>
-                                    <td class="text-danger">200e</td>
-                                </tr>
-                                <tr>
-                                    <td>Ocena: </td>
-                                    <td class="w-100">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary w-100">Detaljnije</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="assets/images/dell1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">DELL Inspiron</h5>
-                            <table>
-                                <tr>
-                                    <td>Cena:</td>
-                                    <td class="text-danger">250e</td>
-                                </tr>
-                                <tr>
-                                    <td>Ocena: </td>
-                                    <td style="width: 100%;">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 40%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">2/5</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary w-100">Detaljnije</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="assets/images/dell2.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">DELL Inspiron</h5>
-                            <table>
-                                <tr>
-                                    <td>Cena:</td>
-                                    <td class="text-danger">300e</td>
-                                </tr>
-                                <tr>
-                                    <td>Ocena: </td>
-                                    <td style="width: 100%;">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary w-100">Detaljnije</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="assets/images/len.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Lenovo Thinkpad</h5>
-                            <table>
-                                <tr>
-                                    <td>Cena:</td>
-                                    <td class="text-danger">150e</td>
-                                </tr>
-                                <tr>
-                                    <td>Ocena: </td>
-                                    <td style="width: 100%;">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">1/5</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary w-100">Detaljnije</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">DELL Inspiron</h5>
-                            <table>
-                                <tr>
-                                    <td>Cena:</td>
-                                    <td class="text-danger">200e</td>
-                                </tr>
-                                <tr>
-                                    <td>Ocena: </td>
-                                    <td style="width: 100%;">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">DELL Inspiron</h5>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 24%;">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">DELL Inspiron</h5>
-                            <p class="card-text">Quick sample text to create the card title and make up the body of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 bg-light text-center">
-                    <div class="card card-signin my-1">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Objavi oglas</h5>
-                            <form class="form-signin">
-
-                                <button class="btn btn-lg btn-primary text-center text-uppercase w-75"
-                                    type="submit">Prijava</button>
-
-                            </form>
-                        </div>
-                        <div class="card card-signin my-1">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Registruj se</h5>
-                                <form class="form-signin">
-                                    <div class="form-label-group">
-                                        <input type="email" id="inputEmail" class="form-control"
-                                            placeholder="Email address" required autofocus>
-                                        <label for="inputEmail">Email address</label>
-                                    </div>
-
-                                    <div class="form-label-group">
-                                        <input type="password" id="inputPassword" class="form-control"
-                                            placeholder="Password" required>
-                                        <label for="inputPassword">Password</label>
-                                    </div>
-
-                                    <div class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
-                                    </div>
-                                    <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                        type="submit">Registracija</button>
-
-                                </form>
-                            </div>
-                        </div>
-                        <div class="card bg-dark text-light card-signin my-1">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Postani tester</h5>
-                                <form class="form-signin">
-                                    <div class="form-label-group">
-                                        <input type="email" id="inputEmail" class="form-control"
-                                            placeholder="Email address" required autofocus>
-                                        <label for="inputEmail">Email address</label>
-                                    </div>
-
-                                    <div class="form-label-group">
-                                        <input type="password" id="inputPassword" class="form-control"
-                                            placeholder="Password" required>
-                                        <label for="inputPassword">Password</label>
-                                    </div>
-
-                                    <div class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                        <label class="custom-control-label" for="customCheck2">Remember password</label>
-                                    </div>
-                                    <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                        type="submit">Prijava</button>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-
         </div>
         </div>
         </div>
     </main>
-    <footer>
 
+
+    <footer>
+        <!-- TO DO -->
     </footer>
+
 </body>
+
 
 </html>

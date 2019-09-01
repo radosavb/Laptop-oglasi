@@ -9,12 +9,6 @@
     display: inline-block;
 }
 
-.card img {
-    height: 160px;
-    ;
-}
-
-header {
-    margin-bottom: 0;
-    font-family: 'Courier New', Courier, monospace;
+h1{       
+    font-family: 'Courier New', Courier, monospace;   
 }
