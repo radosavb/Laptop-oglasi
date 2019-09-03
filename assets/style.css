@@ -24,7 +24,7 @@ footer a {
 }
 
 footer a:hover {
-    color: rgb(30, 123, 210);
+    color: rgb(30, 123, 210)!important;
     font-size: 17px;
     text-decoration: none;
 }
