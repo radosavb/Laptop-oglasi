@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <head>
     <?php
     include_once 'head.php'
@@ -7,7 +5,7 @@
     <title>Laptopdrom | Registracija</title>
 </head>
 
-<body>
+
     <?php
     include_once 'header.php'
     ?>
@@ -51,6 +49,6 @@
         </form>
     </div>
 
-</body>
-
-</html>
+<?php
+include('footer.php');
+?>

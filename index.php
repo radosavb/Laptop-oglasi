@@ -8,6 +8,7 @@
     ?>
     <!-- title nisam ukljucio u head.php jer ce da se menja u zavisnosti od stranice -->
     <title>Laptopdrom | specijalizovan sajt za polovne laptopove</title>
+    
 </head>
 
 <body>
@@ -266,7 +267,7 @@
                 </div>
                 <!-- Side bar right -->
                 <div class="col-md-2 bg-light text-center">
-                    <button class="btn btn-lg btn-danger text-center" type="submit">OBJAVI OGLAS</button>
+                    <button id="unos" class="btn btn-lg btn-danger text-center" type="button">OBJAVI OGLAS</button>
 
                 </div>
             </div>
@@ -279,8 +280,6 @@
     <footer>
         <!-- TO DO -->
     </footer>
-
-</body>
-
-
-</html>
+    <?php
+    include('footer.php');
+    ?>
