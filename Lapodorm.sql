@@ -47,5 +47,5 @@ test varchar(500),
 ocena numeric(1),
 constraint t1_fk foreign key (user_id) references Korisnici (user_id),
 constraint t2_fk foreign key (oglas_id) references Oglas (oglas_id),
-constraint valuta_check check (valuta IN ('1','2','3','4','5'))
+constraint ocena_check check (ocena IN ('1','2','3','4','5'))
 );
