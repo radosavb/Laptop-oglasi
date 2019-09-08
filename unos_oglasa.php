@@ -19,9 +19,9 @@
 <?php
 include('./includes/header.php');
 ?>
-
-<form action="" method="" class="">
-    <fieldset>
+<div class="container">
+<form action="" method="" class="bg-light">
+    <fieldset class="p-3 my-3">
         <legend>Unos oglasa</legend>
         <div class="form-row mb-3">
             <div class="form-group col-md-6">
@@ -38,9 +38,8 @@ include('./includes/header.php');
             </div>
             <div class="form-group col-md-1 col-6">
                 <label for="valuta">Valuta:</label>
-                <select id="valuta" name="valuta" class="form-control">
-                    <option>€</option>
-                    <option>RSD</option>
+                <select id="valuta" name="valuta" class="form-control" readonly>
+                    <option selected>RSD</option>
                 </select>
             </div>
         </div>
@@ -49,7 +48,7 @@ include('./includes/header.php');
 
             <div class="form-group col-lg-3 col-md-6">
                 <label for="cpu">Procesor</label>
-                <select id="cpu" name="cpu" class="form-control">
+                <select id="cpu" name="cpu" class="form-control" required>
                     <option value="">---</option>
                     <option value="Intel Core i9 (osmojezgarni)">Intel Core i9 (osmojezgarni)</option>
                     <option value="Intel Core i9 (šestojezgarni)">Intel Core i9 (šestojezgarni)</option>
@@ -77,7 +76,7 @@ include('./includes/header.php');
 
             <div class="form-group col-lg-3 col-md-6">
                 <label for="ram">RAM</label>
-                <select id="ram" name="ram" class="form-control">
+                <select id="ram" name="ram" class="form-control" required>
                     <option value="">---</option>
                     <option value="1 GB">1 GB</option>
                     <option value="2 GB">2 GB</option>
@@ -101,11 +100,11 @@ include('./includes/header.php');
 
             <div class="form-group col-lg-3 col-md-6">
                 <label for="ekran">Ekran</label>
-                <select id="ekran" name="ekran" class="form-control">
+                <select id="ekran" name="ekran" class="form-control" required>
                     <option value="">---</option>
                     <option value="12">12"</option>
                     <option value="14">14"</option>
-                    <option value="15.6">15.5"</option>
+                    <option value="15.6">15.6"</option>
                     <option value="17.3">17.3"</option>
                 </select>
             </div>
@@ -115,7 +114,7 @@ include('./includes/header.php');
             </div>
             <div class="form-group col-lg-3 col-md-6">
                 <label for="gpu">Grafička kartica:</label>
-                <select id="gpu" name="gpu" class="form-control">
+                <select id="gpu" name="gpu" class="form-control" required>
                     <option value="">---</option>
                     <option value="Integrisana">Integrisana</option>
                     <option value="NVidia">NVidia</option>
@@ -134,9 +133,10 @@ include('./includes/header.php');
 
             <div class="form-group col-lg-3 col-md-6">
                 <label for="hdd">HDD</label>
-                <select id="hdd" name="hdd" class="form-control">
+                <select id="hdd" name="hdd" class="form-control" required>
                     <option value="">---</option>
-                    <option value="HDD 112 GB">HDD 112 GB</option>
+                    <option value="0">Nema</option>
+                    <option value="HDD 124 GB">HDD 124 GB</option>
                     <option value="HDD 256 GB">HDD 256 GB</option>
                     <option value="HDD 512 GB">HDD 512 GB</option>
                     <option value="HDD 1 TB">HDD 1 TB</option>
@@ -150,9 +150,10 @@ include('./includes/header.php');
 
             <div class="form-group col-lg-3 col-md-6">
                 <label for="ssd">SSD</label>
-                <select id="ssd" name="ssd" class="form-control">
+                <select id="ssd" name="ssd" class="form-control" required>
                     <option value="">---</option>
-                    <option value="SSD 112 GB">SSD 112 GB</option>
+                    <option value="0">Nema</option>
+                    <option value="SSD 124 GB">SSD 124 GB</option>
                     <option value="SSD 256 GB">SSD 256 GB</option>
                     <option value="SSD 512 GB">SSD 512 GB</option>
                     <option value="SSD 1 TB">SSD 1 TB</option>
@@ -169,7 +170,7 @@ include('./includes/header.php');
 
             <div class="form-group col-lg-3 col-md-6">
                 <label for="os">Operativni sistem</label>
-                <select id="os" name="os" class="form-control">
+                <select id="os" name="os" class="form-control" required>
                     <option value="Nema">Nema</option>
                     <option value="Windows">Windows</option>
                     <option value="Linux">Linux</option>
@@ -197,12 +198,12 @@ include('./includes/header.php');
 
             <div class="form-group col-md-6">
                 <label for="lokacija">Lokacija</label>
-                <input class="form-control" type="text" id="lokacija" name="lokacija" placeholder="npr. Beograd, Zvezdara">
+                <input class="form-control" type="text" id="lokacija" name="lokacija" placeholder="npr. Beograd, Zvezdara" required>
             </div>
 
             <div class="form-group col-md-6">
                 <label for="testiranje">Želim da se moj laptop testira:</label>
-                <select id="testiranje" name="testiranje" class="form-control">
+                <select id="testiranje" name="testiranje" class="form-control" required>
                     <option value="da">Da</option>
                     <option value="ne">Ne</option>
                 </select>
