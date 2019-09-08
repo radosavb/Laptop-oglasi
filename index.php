@@ -4,17 +4,17 @@
 <head>
     <?php
     //Ubacuje css, bootstrap i ostalo
-    include_once 'head.php';
+    include_once './includes/head.php';
     ?>
     <!-- title nisam ukljucio u head.php jer ce da se menja u zavisnosti od stranice -->
     <title>Laptopdrom | specijalizovan sajt za polovne laptopove</title>
-    
+
 </head>
 
 <body>
 
     <?php
-    include_once 'header.php';
+    include_once './includes/header.php';
     ?>
 
 
@@ -274,12 +274,10 @@
         </div>
         </div>
         </div>
-    </main>
-
-
-    <footer>
-        <!-- TO DO -->
-    </footer>
+    </main>    
     <?php
-    include('footer.php');
+    include_once './includes/footer.php';
     ?>
+</body>
+
+</html>

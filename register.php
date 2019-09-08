@@ -1,13 +1,17 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <?php
-    include_once 'head.php'
+    include_once './includes/head.php'
     ?>
     <title>Laptopdrom | Registracija</title>
 </head>
 
+<body>
 
     <?php
-    include_once 'header.php'
+    include_once './includes/header.php'
     ?>
 
     <div id="form" class="container w-75 my-5 bg-light border">
@@ -23,7 +27,7 @@
 
             <div class="form-group">
                 <label class="mt-3" for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Unesite email">                
+                <input type="email" class="form-control" id="email" name="email" placeholder="Unesite email">
             </div>
             <div class="form-group">
                 <label for="password">Šifra</label>
@@ -48,7 +52,9 @@
             <button type="submit" class="btn btn-primary mt-3">Pošalji</button>
         </form>
     </div>
+    <?php
+    include_once './includes/footer.php';
+    ?>
+</body>
 
-<?php
-include('footer.php');
-?>
+</html>
