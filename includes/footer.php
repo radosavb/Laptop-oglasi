@@ -1,9 +1,3 @@
-<head>
-    <?php
-    include('head.php');
-    ?>
-    <title>Footer</title>
-</head>
 <footer class="page-footer container-fluid text-dark" style="border-top:2px solid rgb(107, 107, 107)">
         <div id="bottom_menu" class="row py-3">
 
@@ -64,6 +58,3 @@
     });
     </script>
 
-</body>
-
-</html>
