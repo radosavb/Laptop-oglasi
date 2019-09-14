@@ -2,9 +2,9 @@
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Methods: POST');
+//PUT method!!
+header('Access-Control-Allow-Methods: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
-
 
 include_once '../../config/database.php';
 include_once '../../models/oglasi.php';
@@ -17,7 +17,7 @@ $post = new Oglas($db);
 //uzimamo podatke sa inputa
 $data = json_decode(file_get_contents("php://input"));
 
-
+$post->oglas_id = $data->oglas_id;
 $post->naziv = $data->naziv;
 $post->cena = $data->cena;
 $post->slika = $data->slika;
@@ -40,13 +40,12 @@ $post->garancija = $data->garancija;
 $post->datum_oglasa = $data->datum_oglasa;
 $post->user_id = $data->user_id;
 
-
-if ($post->create()) {
+if ($post->update()) {
     echo json_encode(
-        array('message' => 'Kreiran je novi oglas')
+        array('message' => 'Promenjeni su podaci u oglasu')
     );
 } else {
     echo json_encode(
-        array('message' => 'Oglas nije kreiran')
+        array('message' => 'Nisu promenjeni podaci u oglasu')
     );
 }
