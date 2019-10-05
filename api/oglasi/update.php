@@ -8,6 +8,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 include_once '../../config/database.php';
 include_once '../../models/oglasi.php';
+
 //pokretanje konekcije
 $database = new Database();
 $db = $database->connect();
