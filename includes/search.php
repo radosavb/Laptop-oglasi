@@ -1,7 +1,5 @@
 <?php
 
-// header("Access-Control-Allow-Origin: *");
-// header("Content-Type: application/json; charset=UTF-8");
 
 include_once 'sidebar.php';
 include_once './config/database.php';
@@ -13,17 +11,67 @@ $db = $database->connect();
 
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-// dodao sam ovo na pocetak da odmah proveri da li postoji search, ako ne on ide dole i ispisuje sve iz baze
-if (isset($_POST['pretraga']) && $_POST['pretraga'] !== "") {
-    $pretraga = '%' . $_POST['pretraga'] . '%';
+// proverava da li postoji search, ako ne on ide dole i ispisuje sve iz baze
+if (
+    isset($_GET['pretraga']) && $_GET['pretraga'] !== "" ||
+    isset($_GET['cpu']) ||
+    isset($_GET['ram']) ||
+    isset($_GET['gpu']) ||
+    isset($_GET['hdd1']) ||
+    isset($_GET['hdd2'])
+) {
+    $query = "
+        SELECT * FROM oglas WHERE 1
+	";
+    if (isset($_GET['pretraga']) && $_GET['pretraga'] !== "") {
+        $sanitize = htmlspecialchars(strip_tags($_GET['pretraga']));
+        $pretraga = '%' . $sanitize . '%';
+        $query .= "
+		 AND naziv LIKE '" . $pretraga . "'
+		";
+    }
+    if (isset($_GET["min"]) && isset($_GET["max"])  && !empty($_GET["min"]) && !empty($_GET["max"])) {
+        $query .= "
+		 AND cena BETWEEN '" . $_GET["min"] . "' AND '" . $_GET["max"] . "'
+		";
+    }
 
-    //ovaj deo sam isto malo promenio
-    $sql = 'SELECT * FROM oglas WHERE naziv LIKE ? ORDER BY naziv';
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(1, $pretraga);
+    if (isset($_GET["cpu"])) {
+
+        $filter = implode("','", $_GET["cpu"]);
+        $query .= "
+		 AND cpu IN('" . $filter . "')
+		";
+    }
+    if (isset($_GET["ram"])) {
+        $filter = implode("','", $_GET["ram"]);
+        $query .= "
+		 AND ram IN('" . $filter . "')
+		";
+    }
+    if (isset($_GET["gpu"])) {
+        $filter = implode("','", $_GET["gpu"]);
+        $query .= "
+		 AND gpu IN('" . $filter . "')
+		";
+    }
+    if (isset($_GET["hdd1"])) {
+        $filter = implode("','", $_GET["hdd1"]);
+        $query .= "
+		 AND hdd1 IN('" . $filter . "')
+		";
+    }
+    if (isset($_GET["hdd2"])) {
+        $filter = implode("','", $_GET["hdd2"]);
+        $query .= "
+		 AND hdd2 IN('" . $filter . "')
+		";
+    }
+   
+    $stmt = $db->prepare($query);
     $stmt->execute();
     $oglasi = $stmt->fetchAll();
-    
+
     // bolje se empty nego isset, empty proverava da li je niz prazan, ako jeste onda ce da ispise gresku dole, ako nije napravice kartice
     if (!empty($oglasi)) {
         foreach ($oglasi as $oglas) {
