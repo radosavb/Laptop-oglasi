@@ -14,6 +14,8 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 // proverava da li postoji search, ako ne on ide dole i ispisuje sve iz baze
 if (
     isset($_GET['pretraga']) && $_GET['pretraga'] !== "" ||
+    isset($_GET["min"]) ||
+    isset($_GET["max"]) ||
     isset($_GET['cpu']) ||
     isset($_GET['ram']) ||
     isset($_GET['gpu']) ||
@@ -30,9 +32,17 @@ if (
 		 AND naziv LIKE '" . $pretraga . "'
 		";
     }
-    if (isset($_GET["min"]) && isset($_GET["max"])  && !empty($_GET["min"]) && !empty($_GET["max"])) {
+    if (isset($_GET["min"]) && !empty($_GET["min"])) {
+        $sanitize = htmlspecialchars(strip_tags($_GET['min']));
         $query .= "
-		 AND cena BETWEEN '" . $_GET["min"] . "' AND '" . $_GET["max"] . "'
+        AND cena >= '" . $_GET["min"] . "'
+		";
+    }
+
+    if (isset($_GET["max"]) && !empty($_GET["max"])) {
+        $sanitize = htmlspecialchars(strip_tags($_GET['max']));
+        $query .= "
+        AND cena <= '" . $_GET["max"] . "'
 		";
     }
 

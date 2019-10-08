@@ -110,7 +110,6 @@ class Oglas
                 slob_opis=:slob_opis, 
                 Lokacija= :Lokacija, 
                 garancija= :garancija, 
-                datum_oglasa= :datum_oglasa, 
                 user_id= :user_id';
 
 
@@ -136,7 +135,6 @@ class Oglas
         $this->slob_opis = htmlspecialchars(strip_tags($this->slob_opis));
         $this->Lokacija = htmlspecialchars(strip_tags($this->Lokacija));
         $this->garancija = htmlspecialchars(strip_tags($this->garancija));
-        $this->datum_oglasa = htmlspecialchars(strip_tags($this->datum_oglasa));
         $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
         //povezijemo podatke sa query    
@@ -159,7 +157,6 @@ class Oglas
         $stmt->bindParam(':slob_opis', $this->slob_opis);
         $stmt->bindParam(':Lokacija', $this->Lokacija);
         $stmt->bindParam(':garancija', $this->garancija);
-        $stmt->bindParam(':datum_oglasa', $this->datum_oglasa);
         $stmt->bindParam(':user_id', $this->user_id);
 
 
@@ -196,7 +193,6 @@ class Oglas
           slob_opis=:slob_opis, 
           Lokacija= :Lokacija, 
           garancija= :garancija, 
-          datum_oglasa= :datum_oglasa, 
           user_id= :user_id
          WHERE 
           oglas_id= :oglas_id';
@@ -224,7 +220,6 @@ class Oglas
         $this->slob_opis = htmlspecialchars(strip_tags($this->slob_opis));
         $this->Lokacija = htmlspecialchars(strip_tags($this->Lokacija));
         $this->garancija = htmlspecialchars(strip_tags($this->garancija));
-        $this->datum_oglasa = htmlspecialchars(strip_tags($this->datum_oglasa));
         $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
 
@@ -249,7 +244,6 @@ class Oglas
         $stmt->bindParam(':slob_opis', $this->slob_opis);
         $stmt->bindParam(':Lokacija', $this->Lokacija);
         $stmt->bindParam(':garancija', $this->garancija);
-        $stmt->bindParam(':datum_oglasa', $this->datum_oglasa);
         $stmt->bindParam(':user_id', $this->user_id);
 
         if ($stmt->execute()) {

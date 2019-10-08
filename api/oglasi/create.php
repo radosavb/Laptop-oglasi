@@ -37,7 +37,6 @@ $post->os = $data->os;
 $post->slob_opis = $data->slob_opis;
 $post->Lokacija = $data->Lokacija;
 $post->garancija = $data->garancija;
-$post->datum_oglasa = $data->datum_oglasa;
 $post->user_id = $data->user_id;
 
 
