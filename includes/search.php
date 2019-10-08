@@ -1,6 +1,16 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+#kartica:hover {
+    box-shadow: 10px 10px 50px lightgrey; 
+}
+    </style>
+</head>
+
 <?php
 
-
+include_once './includes/head.php';
 include_once 'sidebar.php';
 include_once './config/database.php';
 
@@ -18,9 +28,11 @@ if (
     isset($_GET["max"]) ||
     isset($_GET['cpu']) ||
     isset($_GET['ram']) ||
+    isset($_GET['ekran']) ||
     isset($_GET['gpu']) ||
     isset($_GET['hdd1']) ||
-    isset($_GET['hdd2'])
+    isset($_GET['hdd2']) ||
+    isset($_GET['os'])
 ) {
     $query = "
         SELECT * FROM oglas WHERE 1
@@ -65,6 +77,12 @@ if (
 		 AND gpu IN('" . $filter . "')
 		";
     }
+    if (isset($_GET["ekran"])) {
+        $filter = implode("','", $_GET["ekran"]);
+        $query .= "
+		 AND ekran IN('" . $filter . "')
+		";
+    }
     if (isset($_GET["hdd1"])) {
         $filter = implode("','", $_GET["hdd1"]);
         $query .= "
@@ -77,6 +95,12 @@ if (
 		 AND hdd2 IN('" . $filter . "')
 		";
     }
+    if (isset($_GET["os"])) {
+        $filter = implode("','", $_GET["os"]);
+        $query .= "
+		 AND os IN('" . $filter . "')
+		";
+    }
    
     $stmt = $db->prepare($query);
     $stmt->execute();
@@ -85,25 +109,27 @@ if (
     // bolje se empty nego isset, empty proverava da li je niz prazan, ako jeste onda ce da ispise gresku dole, ako nije napravice kartice
     if (!empty($oglasi)) {
         foreach ($oglasi as $oglas) {
+        $opis = $oglas->slob_opis;
+        $kratak_opis=substr($opis,0,40);
             echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
         <img class="card-img-top" src="assets/images/dell.jfif">
         <div class="card-body">
             <h5 class="card-title">' . $oglas->naziv . '</h5>
-            <table>
+            <table class="table-striped w-100">
                 <tr>
-                    <td>Cena:</td>
-                    <td class="text-danger">' . $oglas->cena . '</td>
+                    <td class="">Cena:</td>
+                    <td class="text-danger px-1">' . $oglas->cena . '</td>
                 </tr>
                 <tr>
-                    <td>Ocena: </td>
-                    <td class="w-100">
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
-                        </div>
-                    </td>
+                    <td class="">Procesor: </td>
+                    <td class="text-primary font-italic px-1">' . $oglas->cpu . '</td>                    
+                </tr>
+                <tr>
+                    <td class="">RAM: </td>
+                    <td class="text-primary px-1">' . $oglas->ram . ' GB</td>
                 </tr>
             </table>
-            <p class="card-text"></p>
+            <p class="card-text ">'. $kratak_opis .'...</p>
             <a href="#" class="btn btn-primary w-100">Detaljnije</a>
         </div>
     </div>';
@@ -119,25 +145,27 @@ if (
     $oglasi = $stmt->fetchAll();
 
     foreach ($oglasi as $oglas) {
-        echo '<div id="kartica" max-width:30px"; class="card d-flex justify-content-around mb-3 mx-2">
+    $opis = $oglas->slob_opis;
+    $kratak_opis=substr($opis,0,40);
+        echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
         <img class="card-img-top" src="assets/images/dell.jfif">
         <div class="card-body">
             <h5 class="card-title">' . $oglas->naziv . '</h5>
-            <table>
+            <table class="table-striped w-100">
                 <tr>
-                    <td>Cena:</td>
-                    <td class="text-danger">' . $oglas->cena . '</td>
+                    <td class="">Cena:</td>
+                    <td class="text-danger px-1">' . $oglas->cena . '</td>
                 </tr>
                 <tr>
-                    <td>Ocena: </td>
-                    <td class="w-100">
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
-                        </div>
-                    </td>
+                    <td class="">Procesor: </td>
+                    <td class="text-primary font-italic px-1">' . $oglas->cpu . '</td>                    
+                </tr>
+                <tr>
+                    <td class="">RAM: </td>
+                    <td class="text-primary px-1">' . $oglas->ram . ' GB</td>
                 </tr>
             </table>
-            <p class="card-text"></p>
+            <p class="card-text ">'. $kratak_opis .'...</p>
             <a href="#" class="btn btn-primary w-100">Detaljnije</a>
         </div>
     </div>';

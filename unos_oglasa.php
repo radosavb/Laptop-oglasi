@@ -3,8 +3,6 @@
 
     include_once './includes/head.php';
     // include_once './config/database.php';
-    // include_once 'create_proba.php';
-
 
     ?>
     <title>Unos oglasa</title>
@@ -25,7 +23,7 @@
 include_once './includes/header.php';
 ?>
 <div class="container">
-    <form action="" method="post" class="bg-light" enctype="multipart/form-data">
+    <form action="create_oglas.php" method="post" class="bg-light">
         <fieldset class="p-3 my-3">
             <legend>Unos oglasa</legend>
             <div class="form-row mb-3">
@@ -43,9 +41,7 @@ include_once './includes/header.php';
                 </div>
                 <div class="form-group col-md-1 col-6">
                     <label for="valuta">Valuta:</label>
-                    <select id="valuta" name="valuta" class="form-control" readonly>
-                        <option selected>RSD</option>
-                    </select>
+                    <input type="readonly" value="RSD" id="valuta" name="valuta" class="form-control">
                 </div>
             </div>
 
@@ -55,21 +51,16 @@ include_once './includes/header.php';
                     <label for="cpu">Procesor</label>
                     <select id="cpu" name="cpu" class="form-control" required>
                         <option value="">---</option>
-                        <option value="Intel Core i9 (osmojezgarni)">Intel Core i9 (osmojezgarni)</option>
-                        <option value="Intel Core i9 (šestojezgarni)">Intel Core i9 (šestojezgarni)</option>
-                        <option value="Intel Core i7 (šestojezgarni)">Intel Core i7 (šestojezgarni)</option>
-                        <option value="Intel Core i7 (četvorojezgarni)">Intel Core i7 (četvorojezgarni)</option>
-                        <option value="Intel Core i7 (dvojezgarni)">Intel Core i7 (dvojezgarni)</option>
-                        <option value="Intel Core i5 (četvorojezgarni)">Intel Core i5 (četvorojezgarni)</option>
-                        <option value="Intel Core i5 (dvojezgarni)">Intel Core i5 (dvojezgarni)</option>
-                        <option value="Intel Core i3 (dvojezgarni)">Intel Core i3 (dvojezgarni)</option>
-                        <option value="Intel Core M (dvojezgarni)">Intel Core M (dvojezgarni)</option>
-                        <option value="Intel Pentium (četvorojezgarni)">Intel Pentium (četvorojezgarni)</option>
-                        <option value="Intel Pentium (dvojezgarni)">Intel Pentium (dvojezgarni)</option>
-                        <option value="Intel Celeron (četvorojezgarni)">Intel Celeron (četvorojezgarni)</option>
-                        <option value="Intel Celeron (dvojezgarni)">Intel Celeron (dvojezgarni)</option>
+                        <option value="Intel Core i9">Intel Core i9</option>
+                        <option value="Intel Core i7">Intel Core i7</option>
+                        <option value="Intel Core i5">Intel Core i5</option>
+                        <option value="Intel Core i3">Intel Core i3</option>
+                        <option value="Intel Core M">Intel Core M</option>
+                        <option value="Intel Pentium">Intel Pentium</option>
+                        <option value="Intel Atom">Intel Atom</option>
+                        <option value="Intel Celeron ">Intel Celeron</option>
                         <option value="Intel Xeon">Intel Xeon</option>
-                        <option value="AMD (cetvorojezgarni)">AMD (cetvorojezgarni)</option>
+                        <option value="AMD (cetvorojezgarni)">AMD (četvorojezgarni)</option>
                         <option value="AMD (dvojezgarni)">AMD (dvojezgarni)</option>
                     </select>
                 </div>
@@ -83,14 +74,14 @@ include_once './includes/header.php';
                     <label for="ram">RAM</label>
                     <select id="ram" name="ram" class="form-control" required>
                         <option value="">---</option>
-                        <option value="1 GB">1 GB</option>
-                        <option value="2 GB">2 GB</option>
-                        <option value="4 GB">4 GB</option>
-                        <option value="6 GB">6 GB</option>
-                        <option value="8 GB">8 GB</option>
-                        <option value="12 GB">12 GB</option>
-                        <option value="16 GB">16 GB</option>
-                        <option value=">16 GB">više od 16 GB</option>
+                        <option value="1">1 GB</option>
+                        <option value="2">2 GB</option>
+                        <option value="4">4 GB</option>
+                        <option value="6">6 GB</option>
+                        <option value="8">8 GB</option>
+                        <option value="12">12 GB</option>
+                        <option value="16">16 GB</option>
+                        <option value=">16">više od 16 GB</option>
                     </select>
                 </div>
 
@@ -140,34 +131,34 @@ include_once './includes/header.php';
                     <label for="hdd1">HDD</label>
                     <select id="hdd1" name="hdd1" class="form-control" required>
                         <option value="">---</option>
-                        <option value="0">Nema</option>
-                        <option value="HDD 124 GB">HDD 124 GB</option>
-                        <option value="HDD 256 GB">HDD 256 GB</option>
-                        <option value="HDD 512 GB">HDD 512 GB</option>
-                        <option value="HDD 1 TB">HDD 1 TB</option>
-                        <option value="HDD 2 TB">HDD 2 TB</option>
+                        <option value="nema">Nema</option>
+                        <option value="128">HDD 124 GB</option>
+                        <option value="256">HDD 256 GB</option>
+                        <option value="512">HDD 512 GB</option>
+                        <option value="1024">HDD 1 TB</option>
+                        <option value="2048">HDD 2 TB</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="hdd_opis">Opis HDD</label>
-                    <input class="form-control" type="text" id="hdd_opis" name="hdd_opis" placeholder="npr. 5400 obrtaja/min.">
+                    <label for="hdd1_opis">Opis HDD</label>
+                    <input class="form-control" type="text" id="hdd1_opis" name="hdd1_opis" placeholder="npr. 5400 obrtaja/min.">
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="hdd2">SSD</label>
                     <select id="hdd2" name="hdd2" class="form-control" required>
                         <option value="">---</option>
-                        <option value="0">Nema</option>
-                        <option value="SSD 124 GB">SSD 124 GB</option>
-                        <option value="SSD 256 GB">SSD 256 GB</option>
-                        <option value="SSD 512 GB">SSD 512 GB</option>
-                        <option value="SSD 1 TB">SSD 1 TB</option>
+                        <option value="nema">Nema</option>
+                        <option value="128">SSD 124 GB</option>
+                        <option value="256">SSD 256 GB</option>
+                        <option value="512">SSD 512 GB</option>
+                        <option value="1024">SSD 1 TB</option>
                     </select>
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="ssd_opis">Opis SDD</label>
-                    <input class="form-control" type="text" id="ssd_opis" name="ssd_opis" placeholder="npr. TOSHIBA NVMe">
+                    <label for="hdd2_opis">Opis SDD</label>
+                    <input class="form-control" type="text" id="hdd2_opis" name="hdd2_opis" placeholder="npr. TOSHIBA NVMe">
                 </div>
 
             </div>
@@ -185,15 +176,15 @@ include_once './includes/header.php';
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="grupa">Garancija</label>
                     <div id="grupa" class="form-check d-inline">
-                        <input class="form-check-input" type="checkbox" id="garancija" name="garancija" value="da">
-                        <input id="meseci" name="meseci" class="form-control" type="int" placeholder="u mesecima">
+                        <input class="form-check-input" type="checkbox" id="gar" name="gar" value="da">
+                        <input id="garancija" name="garancija" class="form-control" type="int" placeholder="u mesecima">
                     </div>
                     <small>*Ukoliko je laptop još uvek pod garancijom čekirajte kvadratić</small>
                 </div>
 
                 <div class="form-group col-lg-6 col-md-12">
-                    <label for="opis">Slobodan opis laptopa</label>
-                    <textarea class="form-control" id="opis" name="opis" cols="30" rows="5"></textarea>
+                    <label for="slob_opis">Slobodan opis laptopa</label>
+                    <textarea class="form-control" id="slob_opis" name="slob_opis" cols="30" rows="5"></textarea>
                     <small>*Što detaljnije opišite stanje laptopa koji oglašavate</small>
                 </div>
 
@@ -202,8 +193,8 @@ include_once './includes/header.php';
             <div class="form-row mb-3">
 
                 <div class="form-group col-md-6">
-                    <label for="lokacija">Lokacija</label>
-                    <input class="form-control" type="text" id="lokacija" name="lokacija" placeholder="npr. Beograd, Zvezdara">
+                    <label for="Lokacija">Lokacija</label>
+                    <input class="form-control" type="text" id="Lokacija" name="Lokacija" placeholder="npr. Beograd, Zvezdara">
                 </div>
 
                 <div class="form-group col-md-6">

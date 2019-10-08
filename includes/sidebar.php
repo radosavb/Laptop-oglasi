@@ -17,7 +17,7 @@
         </div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#side_menu">
-            <span id="collaps_menu" class="fa fa-search text-white"><span>
+            <span id="collaps_menu" class="fa fa-angle-double-down text-white"><span>
         </button>
 
         <div id="side_menu" class="collapse navbar-collapse">
@@ -51,26 +51,12 @@
                             </div>
                         </div>
 
-                        <!-- <div class="filter-content">
-
-                    <legend class="h6 mb-0">Po ceni</legend>
-
-                    <input type="hidden" id="hidden_minimum_price" value="0">
-
-                    <input type="hidden" id="hidden_maximum_price" value="65000">
-
-                    <p id="price_show">1000 - 65000</p>
-                    
-                    <div id="price_range"></div>
-                       
-                </div> -->
-
                     </li>
 
 
 
                     <li>
-                        <?php $procesori = ['Intel Core i9 (osmojezgarni)', 'Intel Core i9 (šestojezgarni)', 'Intel Core i7 (šestojezgarni)', 'Intel Core i7 (četvorojezgarni)', 'Intel Core i7 (dvojezgarni)', 'Intel Core i5 (četvorojezgarni)', 'Intel Core i5 (dvojezgarni)', 'Intel Core i3 (dvojezgarni)', 'Intel Core M (dvojezgarni)', 'Intel Pentium (četvorojezgarni)', 'Intel Pentium (dvojezgarni)', 'Intel Celeron (četvorojezgarni)', 'Intel Celeron (dvojezgarni)', 'Intel Xeon', 'AMD (cetvorojezgarni)', 'AMD (dvojezgarni)']; ?>
+                        <?php $procesori = ['Intel Core i9', 'Intel Core i7', 'Intel Core i5', 'Intel Core i3', 'Intel Core M', 'Intel Pentium', 'Intel Atom', 'Intel Celeron', 'Intel Xeon', 'AMD (četvorojezgarni)', 'AMD (dvojezgarni)']; ?>
 
                         <a href="#procesorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Procesor</a>
 
@@ -92,7 +78,7 @@
                     </li>
 
                     <li>
-                        <?php $ram_memorija = ['1', '2', '4', '6', '8', '12', '16', 'više od 16']; ?>
+                        <?php $ram_memorija = ['1', '2', '4', '6', '8', '12', '16', '>16']; ?>
 
                         <a href="#ramSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">RAM memorija</a>
 
@@ -157,7 +143,7 @@
 
 
                     <li>
-                        <?php $hdd = ['112', '128', '256', '512', '1024', '2048']; ?>
+                        <?php $hdd = ['nema','128', '256', '512', '1024', '2048']; ?>
 
                         <a href="#hddSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">HDD</a>
 
@@ -178,7 +164,7 @@
                     </li>
 
                     <li>
-                        <?php $sdd = ['112', '128', '256', '512', '1024']; ?>
+                        <?php $sdd = ['128', '256', '512', '1024']; ?>
 
                         <a href="#ssdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">SSD</a>
 
@@ -219,8 +205,8 @@
                         </ul>
                     </li>
                     <div class="text-center">
-                        <button id="pretraga1" name="pretraga1" class="btn  mt-3  text-light" type="submit">Pretraga</button>
-                        <button id="reset" class="btn btn-danger  mt-3 text-light" type="reset"><a href="./index.php">Reset</a></button>
+                        <button id="pretraga1" name="pretraga1" class="btn mt-3  text-light" type="submit">Pretraga</button>
+                        <button id="reset1" class="btn btn-danger  mt-3 text-light" type="reset"><a href="./index.php">Resetuj pretragu</a></button>
                     </div>
 
                 </form>
