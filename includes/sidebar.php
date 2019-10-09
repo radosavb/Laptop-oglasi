@@ -164,7 +164,7 @@
                     </li>
 
                     <li>
-                        <?php $sdd = ['128', '256', '512', '1024']; ?>
+                        <?php $sdd = ['nema','128', '256', '512', '1024']; ?>
 
                         <a href="#ssdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">SSD</a>
 
