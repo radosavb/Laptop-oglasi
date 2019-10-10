@@ -166,7 +166,7 @@ if (
                 </tr>
             </table>
             <p class="card-text ">'. $kratak_opis .'...</p>
-            <a href="./read_single_oglas.php?id=' . $oglas->oglas_id. '" class="btn btn-primary w-100">Detaljnije</a>
+            <a href="./read_single_oglas.php?oglas_id=' . $oglas->oglas_id. '" class="btn btn-primary w-100">Detaljnije</a>
         </div>
     </div>';
     }

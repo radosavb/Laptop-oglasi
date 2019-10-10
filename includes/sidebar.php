@@ -154,7 +154,13 @@
                                 <li class="px-3 py-1 list-group-item">
                                     <label class="form-check">
                                         <input class="form-check-input" type="checkbox" value="<?php echo $hdd[$i] ?>" name="hdd1[]">
-                                        <span class="form-check-label"><?php echo $hdd[$i] ?> GB</span>
+                                        <span class="form-check-label"><?php 
+                                        if($hdd[$i]!="nema"){
+                                            echo $hdd[$i] . " GB";                           
+                                        }else{
+                                            echo "nema";
+                                        }
+                                            ?></span>
                                     </label>
                                 </li>
 
@@ -164,18 +170,24 @@
                     </li>
 
                     <li>
-                        <?php $sdd = ['nema','128', '256', '512', '1024']; ?>
+                        <?php $ssd = ['nema','128', '256', '512', '1024']; ?>
 
                         <a href="#ssdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">SSD</a>
 
                         <ul class="collapse list-group" id="ssdSubmenu">
 
-                            <?php for ($i = 0; $i < count($sdd); $i++) { ?>
+                            <?php for ($i = 0; $i < count($ssd); $i++) { ?>
 
                                 <li class="px-3 py-1 list-group-item">
                                     <label class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="<?php echo $sdd[$i] ?>" name="hdd2[]">
-                                        <span class="form-check-label"><?php echo $sdd[$i] ?> GB</span>
+                                        <input class="form-check-input" type="checkbox" value="<?php echo $ssd[$i] ?>" name="hdd2[]">
+                                        <span class="form-check-label"><?php 
+                                         if($ssd[$i]!="nema"){
+                                            echo $ssd[$i] . " GB";                           
+                                        }else{
+                                            echo "nema";
+                                        }
+                                            ?></span>
                                     </label>
                                 </li>
 

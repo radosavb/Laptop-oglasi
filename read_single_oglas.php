@@ -20,9 +20,7 @@
     $db = $database->connect();
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-    //Ovaj deo koda treba prepraviti u PDO
-    $connection = mysqli_connect('localhost', 'root', '', 'lapodrom');
-    $oglas_id = mysqli_real_escape_string($connection, $_GET['id']);
+    $oglas_id = $_GET['oglas_id'];
 
     $query = 'SELECT * FROM oglas WHERE oglas_id = :oglas_id';
     $stmt = $db->prepare($query);
