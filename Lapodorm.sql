@@ -1,9 +1,11 @@
-create database `Lapodrom` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+-- Baza za sajt Laptop oglasi
+
+create database `Lapodrom` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ; -- Definisanje baze da podrzava nase kraktere
 
 use `Lapodrom`;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+01:00";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"; -- Sprecava ubacivanja 0 (not NULL) vrednosti u novokreirana polja
+SET time_zone = "+01:00"; -- Definisanje vremenske zone
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -13,13 +15,15 @@ SET time_zone = "+01:00";
 
 create table Korisnici
 (user_id int auto_increment,
-ime varchar(30),
-prezime varchar(30),
-email varchar(30),
-sifra varchar(30),
-tel numeric(30),
-adresa varchar(30),
+ime varchar(256),
+prezime varchar(256),
+email varchar(256),
+sifra varchar(2048),
+tel numeric(256),
+adresa varchar(256),
 mode varchar(30),
+created datetime DEFAULT current_timestamp,
+modified timestamp DEFAULT current_timestamp on update current_timestamp,
 constraint k_pk primary key (user_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -44,7 +48,7 @@ os varchar(30),
 slob_opis varchar(1000),
 Lokacija varchar(30),
 garancija int,
-datum_oglasa datetime,
+datum_oglasa timestamp,
 user_id int,
 constraint o_pk primary key (oglas_id),
 constraint o_fk foreign key (user_id) references Korisnici (user_id)
