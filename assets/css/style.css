@@ -55,7 +55,6 @@ a {
 
 #navbar {
     background: rgb(29, 100, 158) !important;
-    /* border-bottom: 1px solid gray; */
     border-bottom: 1px solid #39ff14;
 }
 
@@ -172,6 +171,15 @@ a {
 
 #pretraga1:hover {
     background: rgb(1, 58, 105) !important;
+}
+
+select {
+    background: rgb(1, 58, 105) !important;
+    color: white !important;
+}
+
+label {
+    font-weight: bold;
 }
 
 footer a {

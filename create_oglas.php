@@ -39,16 +39,22 @@ include_once './config/database.php';
     } else {
       $garancija = 0;
     }
+    $uploadOk = 1;
     // $garancija = $_POST['garancija'];
 
 
 if(isset($_POST['predaj_oglas'])){
+
+    $target = "assets/images/".basename($_FILES['dodaj_sliku']['name']);
+    
     $database = new Database();
     $db = $database->connect();
 
-    $sql = 'INSERT INTO oglas (naziv, cena, cpu, cpu_opis, ram, tip_rama, gpu, gpu_opis, ekran, ekran_opis, hdd1, hdd1_opis, hdd2, hdd2_opis, os, slob_opis, Lokacija, garancija) VALUES (:naziv, :cena, :cpu, :cpu_opis, :ram, :tip_rama, :gpu, :gpu_opis, :ekran, :ekran_opis, :hdd1, :hdd1_opis, :hdd2, :hdd2_opis, :os, :slob_opis, :Lokacija, :garancija)';
+    $slika = $_FILES['dodaj_sliku']['name'];
+
+    $sql = 'INSERT INTO oglas (naziv, cena, slika, cpu, cpu_opis, ram, tip_rama, gpu, gpu_opis, ekran, ekran_opis, hdd1, hdd1_opis, hdd2, hdd2_opis, os, slob_opis, Lokacija, garancija) VALUES (:naziv, :cena,:slika, :cpu, :cpu_opis, :ram, :tip_rama, :gpu, :gpu_opis, :ekran, :ekran_opis, :hdd1, :hdd1_opis, :hdd2, :hdd2_opis, :os, :slob_opis, :Lokacija, :garancija)';
     $stmt = $db->prepare($sql);
-    $stmt->execute(['naziv' => $naziv , 'cena' => $cena , 'cpu'=> $cpu , 'cpu_opis' => $cpu_opis , 'ram' => $ram , 'tip_rama' => $tip_rama ,'gpu' => $gpu , 'gpu_opis' => $gpu_opis ,'ekran' => $ekran , 'ekran_opis' => $ekran_opis , 'hdd1' => $hdd1 , 'hdd1_opis' => $hdd1_opis , 'hdd2' => $hdd2 , 'hdd2_opis' => $hdd2_opis , 'os' => $os , 'slob_opis' => $slob_opis , 'Lokacija' => $Lokacija , 'garancija' => $garancija]);
+    $stmt->execute(['naziv' => $naziv , 'cena' => $cena , 'slika'=> $slika, 'cpu'=> $cpu , 'cpu_opis' => $cpu_opis , 'ram' => $ram , 'tip_rama' => $tip_rama ,'gpu' => $gpu , 'gpu_opis' => $gpu_opis ,'ekran' => $ekran , 'ekran_opis' => $ekran_opis , 'hdd1' => $hdd1 , 'hdd1_opis' => $hdd1_opis , 'hdd2' => $hdd2 , 'hdd2_opis' => $hdd2_opis , 'os' => $os , 'slob_opis' => $slob_opis , 'Lokacija' => $Lokacija , 'garancija' => $garancija]);
 
     echo '<div id="uspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
     <strong>Uspešno ste objavili oglas!</strong> <a href="index.php">Povratak na Početnu stranu</a>

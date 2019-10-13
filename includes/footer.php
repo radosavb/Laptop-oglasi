@@ -51,10 +51,7 @@
 
     </footer>
 
-    <script>
-    let dugme_unos = document.getElementById("unos");
-    dugme_unos.addEventListener('click', function(){
-        document.location.href='unos_oglasa.php';
-    });
+    <script src="./assets/validation_script.js">
+
     </script>
 

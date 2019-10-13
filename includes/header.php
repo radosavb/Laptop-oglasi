@@ -11,7 +11,7 @@
 </header>
 
 <nav id="navbar" class="navbar bg-primary navbar-dark navbar-expand-lg sticky-top">
-  <a class="navbar-brand" href="index.php"><img src="assets\images\logow.png" width="40px" ></a>
+  <a style="border-bottom:none;" class="navbar-brand" href="index.php"><img src="assets\images\logow.png" width="40px" ></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#meni">
     <span class="navbar-toggler-icon"></span>
   </button>
