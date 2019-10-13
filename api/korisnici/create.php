@@ -28,23 +28,25 @@ $user->mode = $data->mode;
 
 if(
     //proverava se da li su polja prazna, mode ce biti sigurno prazan
-    //za telefon i adresu nisam siguran da l ice biti obavezno
+    //za telefon i adresu nisam siguran da li ce biti obavezno
     !empty($user->ime) &&
     !empty($user->prezime) &&
     !empty($user->email) &&
     !empty($user->sifra) &&
     !empty($user->tel) &&
     !empty($user->adresa) &&
+    //proverava da li vec postoji korisnik sa tim emailom
+    !$user->emailExists() &&
     $user->create()
 ){
  
     http_response_code(200);
-    echo json_encode(array("message" => "Korisnik je kreiran."), JSON_UNESCAPED_UNICODE);
+    echo json_encode(array("error" => false,"message" => "Korisnik je kreiran."), JSON_UNESCAPED_UNICODE);
 }
  
 // message if unable to create user
 else{
  
     http_response_code(400);
-    echo json_encode(array("message" => "Korisnik nije kreiran, unesite sve tražene podatke."), JSON_UNESCAPED_UNICODE);
+    echo json_encode(array("error" => true,"message" => "Email već postoji u bazi."), JSON_UNESCAPED_UNICODE);
 }

@@ -99,4 +99,4 @@ if ((isset($_GET['oglas_id']) && $_GET['oglas_id'] != "")) {
 }
 
 ///api/oglasi/read.php - cita sve oglase
-//api/oglasi/oglas_id/1 - cita pojedinacno
+//api/oglasi/id/1 - cita pojedinacno

@@ -1,6 +1,6 @@
 #Pretvara /api/oglasi/read.php?oglas_id=1
-#U api/oglasi/oglas_id/1
+#U api/oglasi/id/1
 
 RewriteEngine On
-RewriteRule ^/?oglas_id/([^/d]+)/?$ read.php?oglas_id=$1 [L,QSA]
+RewriteRule ^/?id/([^/d]+)/?$ read.php?oglas_id=$1 [L,QSA]
 
