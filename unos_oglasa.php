@@ -18,7 +18,7 @@
         #obavezna_polja{
             color: red;
         }
-        #obav{
+        #info{
             font-size: 10px;
             
         }
@@ -32,7 +32,7 @@ include_once './includes/header.php';
 <div class="container">
     <form id="unos_oglasa" action="create_oglas.php" method="post" enctype="multipart/form-data" class="bg-light">
         <fieldset class="p-3 my-3">
-            <legend>Unos oglasa <span class="text-info" id="obav">Polja obeležena zvezdicom su obavezna</span></legend>
+            <legend>Unos oglasa <span class="text-info" id="info">Polja obeležena zvezdicom su obavezna</span></legend>
             
             <div class="form-row mb-3">
                 <div class="form-group col-md-6">
@@ -40,7 +40,7 @@ include_once './includes/header.php';
                     <input type="text" id="naziv" name="naziv" class="form-control" placeholder="npr. Dell Inspiron 15 3580">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="dodaj_sliku">Dodaj sliku:</label>
+                    <label for="dodaj_sliku">Dodaj sliku:<span id="obavezna_polja"> *</span></label>
                     <input type="file" id="dodaj_sliku" name="dodaj_sliku" class="form-control-file">
                 </div>
                 <div class="form-group col-md-2 col-6">

@@ -2,12 +2,16 @@
 
 <head>
     <style>
-    #uspeh{
+    #uspeh, #neuspeh{
         position: fixed;
         left: 100px;
         top: 180px;
     }
-    
+    #neuspeh1{
+        position: fixed;
+        left: 100px;
+        top: 230px;
+    }
     </style>
 </head>
 
@@ -39,24 +43,69 @@ include_once './config/database.php';
     } else {
       $garancija = 0;
     }
-    $uploadOk = 1;
+    
     // $garancija = $_POST['garancija'];
 
 
 if(isset($_POST['predaj_oglas'])){
 
     $target = "assets/images/".basename($_FILES['dodaj_sliku']['name']);
-    
+    $uploadOk = 1;
+
     $database = new Database();
     $db = $database->connect();
 
     $slika = $_FILES['dodaj_sliku']['name'];
+    $velicina_slike = $_FILES['dodaj_sliku']['size'];
+    $slika_tmp = $_FILES['dodaj_sliku']['tmp_name'];
+    $slika_type = $_FILES['dodaj_sliku']['type'];
+    $delovi = explode('.',$_FILES['dodaj_sliku']['name']);
+    $slika_ext=strtolower(end($delovi));
+
+    $ekstenzije= array("jpeg","jpg","png");
+
+    // if(!isset($_POST['dodaj_sliku'])){
+    //   $slika = 'default.png';
+    // }
+      
+    if(in_array($slika_ext,$ekstenzije) === false){
+    echo '<div id="neuspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Nije dozvoljena odabrana ekstenzija dokumenta (izaberite JPG, JPEG ili PNG fajl)</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>';
+    $uploadOk = 0;
+    }
+
+    if($velicina_slike > 2097152){
+    echo '<div id="neuspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Fajl mora da bude manji od 2MB</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>';
+    $uploadOk = 0;
+    }
+
+    if($uploadOk == 0){
+    echo '<div id="neuspeh1" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Vaš fajl nije otpremljen</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>';
+      die();
+    }
+    else{
+    move_uploaded_file($slika_tmp, $target);
+    }
 
     $sql = 'INSERT INTO oglas (naziv, cena, slika, cpu, cpu_opis, ram, tip_rama, gpu, gpu_opis, ekran, ekran_opis, hdd1, hdd1_opis, hdd2, hdd2_opis, os, slob_opis, Lokacija, garancija) VALUES (:naziv, :cena,:slika, :cpu, :cpu_opis, :ram, :tip_rama, :gpu, :gpu_opis, :ekran, :ekran_opis, :hdd1, :hdd1_opis, :hdd2, :hdd2_opis, :os, :slob_opis, :Lokacija, :garancija)';
     $stmt = $db->prepare($sql);
     $stmt->execute(['naziv' => $naziv , 'cena' => $cena , 'slika'=> $slika, 'cpu'=> $cpu , 'cpu_opis' => $cpu_opis , 'ram' => $ram , 'tip_rama' => $tip_rama ,'gpu' => $gpu , 'gpu_opis' => $gpu_opis ,'ekran' => $ekran , 'ekran_opis' => $ekran_opis , 'hdd1' => $hdd1 , 'hdd1_opis' => $hdd1_opis , 'hdd2' => $hdd2 , 'hdd2_opis' => $hdd2_opis , 'os' => $os , 'slob_opis' => $slob_opis , 'Lokacija' => $Lokacija , 'garancija' => $garancija]);
 
-    echo '<div id="uspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
+    echo '<div id="uspeh" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Uspešno ste objavili oglas!</strong> <a href="index.php">Povratak na Početnu stranu</a>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>

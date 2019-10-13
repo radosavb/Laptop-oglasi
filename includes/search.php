@@ -112,7 +112,7 @@ if (
         $opis = $oglas->slob_opis;
         $kratak_opis=substr($opis,0,40);
             echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
-        <img class="card-img-top" src="assets/images/dell.jfif">
+        <img class="card-img-top" src="assets/images/'.$oglas->slika.'">
         <div class="card-body">
             <h5 class="card-title">' . $oglas->naziv . '</h5>
             <table class="table-striped w-100">
@@ -148,7 +148,7 @@ if (
     $opis = $oglas->slob_opis;
     $kratak_opis=substr($opis,0,40);
         echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
-        <img class="card-img-top" src="assets/images/dell.jfif">
+        <img class="card-img-top" src="assets/images/'.$oglas->slika.'">
         <div class="card-body">
             <h5 class="card-title">' . $oglas->naziv . '</h5>
             <table class="table-striped w-100">

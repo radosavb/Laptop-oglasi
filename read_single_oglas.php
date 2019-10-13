@@ -40,7 +40,7 @@
 
     <div class="row py-3">
         <div class="col-md-4">
-            <img class="img-thumbnail " src="assets/images/dell.jfif">
+            <img class="img-thumbnail " src="assets/images/<?php echo $oglas->slika ?>">
         </div>
         <div class="col-md-4">
             
