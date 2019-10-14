@@ -43,8 +43,6 @@ include_once './config/database.php';
     } else {
       $garancija = 0;
     }
-    
-    // $garancija = $_POST['garancija'];
 
 
 if(isset($_POST['predaj_oglas'])){
@@ -64,42 +62,47 @@ if(isset($_POST['predaj_oglas'])){
 
     $ekstenzije= array("jpeg","jpg","png");
 
-    // if(!isset($_POST['dodaj_sliku'])){
-    //   $slika = 'default.png';
-    // }
-      
-    if(in_array($slika_ext,$ekstenzije) === false){
-    echo '<div id="neuspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Nije dozvoljena odabrana ekstenzija dokumenta (izaberite JPG, JPEG ili PNG fajl)</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>';
-    $uploadOk = 0;
-    }
+  if(!empty($_FILES['dodaj_sliku']['name'])){
 
-    if($velicina_slike > 2097152){
-    echo '<div id="neuspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Fajl mora da bude manji od 2MB</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>';
-    $uploadOk = 0;
-    }
+        if(in_array($slika_ext,$ekstenzije) === false){
+        echo '<div id="neuspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Nije dozvoljena odabrana ekstenzija dokumenta (izaberite JPG, JPEG ili PNG fajl)</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>';
+        $uploadOk = 0;
+        }
+//Sledeci deo koda ne radi. Kada je fajl veci od 2MB izbacuje niz greski.
+        if($velicina_slike > 2097152){
+        echo '<div id="neuspeh" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Fajl mora da bude manji od 2MB</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>';
+        $uploadOk = 0;
+        }
 
-    if($uploadOk == 0){
-    echo '<div id="neuspeh1" class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Vaš fajl nije otpremljen</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>';
-      die();
-    }
-    else{
+        if($uploadOk == 0){
+        echo '<div id="neuspeh1" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Vaš fajl nije otpremljen</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>';
+
+          die();
+
+        }
+      }
+      else
+      {
+        $slika = 'default.png';
+      }
+ 
+
     move_uploaded_file($slika_tmp, $target);
-    }
 
     $sql = 'INSERT INTO oglas (naziv, cena, slika, cpu, cpu_opis, ram, tip_rama, gpu, gpu_opis, ekran, ekran_opis, hdd1, hdd1_opis, hdd2, hdd2_opis, os, slob_opis, Lokacija, garancija) VALUES (:naziv, :cena,:slika, :cpu, :cpu_opis, :ram, :tip_rama, :gpu, :gpu_opis, :ekran, :ekran_opis, :hdd1, :hdd1_opis, :hdd2, :hdd2_opis, :os, :slob_opis, :Lokacija, :garancija)';
     $stmt = $db->prepare($sql);

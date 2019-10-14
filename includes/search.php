@@ -111,7 +111,7 @@ if (
         foreach ($oglasi as $oglas) {
         $opis = $oglas->slob_opis;
         $kratak_opis=substr($opis,0,40);
-            echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
+        echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
         <img class="card-img-top" src="assets/images/'.$oglas->slika.'">
         <div class="card-body">
             <h5 class="card-title">' . $oglas->naziv . '</h5>
@@ -130,7 +130,7 @@ if (
                 </tr>
             </table>
             <p class="card-text ">'. $kratak_opis .'...</p>
-            <a href="./read_single_oglas.php?id=' . $oglas->oglas_id. '" class="btn btn-primary w-100">Detaljnije</a>
+            <a href="./read_single_oglas.php?oglas_id=' . $oglas->oglas_id. '" class="btn btn-primary w-100">Detaljnije</a>
         </div>
     </div>';
         }

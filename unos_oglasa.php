@@ -15,12 +15,11 @@
         label {
             font-weight: bold;
         }
-        #obavezna_polja{
+        .obavezna_polja{
             color: red;
         }
-        #info{
-            font-size: 10px;
-            
+        .info{
+            font-size: 11px;          
         }
     </style>
 </head>
@@ -32,19 +31,19 @@ include_once './includes/header.php';
 <div class="container">
     <form id="unos_oglasa" action="create_oglas.php" method="post" enctype="multipart/form-data" class="bg-light">
         <fieldset class="p-3 my-3">
-            <legend>Unos oglasa <span class="text-info" id="info">Polja obeležena zvezdicom su obavezna</span></legend>
+            <legend>Unos oglasa <span class="text-info info">Polja obeležena zvezdicom su obavezna</span></legend>
             
             <div class="form-row mb-3">
                 <div class="form-group col-md-6">
-                    <label for="naziv" class="">Naziv laptopa<span id="obavezna_polja"> *</span></label>
+                    <label for="naziv" class="">Naziv laptopa<span class="obavezna_polja"> *</span></label>
                     <input type="text" id="naziv" name="naziv" class="form-control" placeholder="npr. Dell Inspiron 15 3580">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="dodaj_sliku">Dodaj sliku:<span id="obavezna_polja"> *</span></label>
+                    <label for="dodaj_sliku">Dodaj sliku:</label>
                     <input type="file" id="dodaj_sliku" name="dodaj_sliku" class="form-control-file">
                 </div>
                 <div class="form-group col-md-2 col-6">
-                    <label for="cena" class="">Cena:<span id="obavezna_polja"> *</span></label>
+                    <label for="cena" class="">Cena:<span class="obavezna_polja"> *</span></label>
                     <input type="int" id="cena" name="cena" class="form-control">
                 </div>
                 <div class="form-group col-md-1 col-6">
@@ -56,7 +55,7 @@ include_once './includes/header.php';
             <div class="form-row mb-3">
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="cpu">Procesor<span id="obavezna_polja"> *</span></label>
+                    <label for="cpu">Procesor<span class="obavezna_polja"> *</span></label>
                     <select id="cpu" name="cpu" class="form-control">
                         <option value="">---</option>
                         <option value="Intel Core i9">Intel Core i9</option>
@@ -79,7 +78,7 @@ include_once './includes/header.php';
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="ram">RAM<span id="obavezna_polja"> *</span></label>
+                    <label for="ram">RAM<span class="obavezna_polja"> *</span></label>
                     <select id="ram" name="ram" class="form-control">
                         <option value="">---</option>
                         <option value="1">1 GB</option>
@@ -103,7 +102,7 @@ include_once './includes/header.php';
             <div class="form-row mb-3">
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="ekran">Ekran<span id="obavezna_polja"> *</span></label>
+                    <label for="ekran">Ekran<span class="obavezna_polja"> *</span></label>
                     <select id="ekran" name="ekran" class="form-control" >
                         <option value="">---</option>
                         <option value="12">12"</option>
@@ -117,7 +116,7 @@ include_once './includes/header.php';
                     <input class="form-control" type="text" id="ekran_opis" name="ekran_opis" placeholder="npr. matt IPS ACER antiglare">
                 </div>
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="gpu">Grafička kartica:<span id="obavezna_polja"> *</span></label>
+                    <label for="gpu">Grafička kartica:<span class="obavezna_polja"> *</span></label>
                     <select id="gpu" name="gpu" class="form-control" >
                         <option value="">---</option>
                         <option value="Integrisana">Integrisana</option>
@@ -136,7 +135,7 @@ include_once './includes/header.php';
             <div class="form-row mb-3">
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="hdd1">HDD<span id="obavezna_polja"> *</span></label>
+                    <label for="hdd1">HDD<span class="obavezna_polja"> *</span></label>
                     <select id="hdd1" name="hdd1" class="form-control">
                         <option value="">---</option>
                         <option value="nema">Nema</option>
@@ -153,7 +152,7 @@ include_once './includes/header.php';
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="hdd2">SSD<span id="obavezna_polja"> *</span></label>
+                    <label for="hdd2">SSD<span class="obavezna_polja"> *</span></label>
                     <select id="hdd2" name="hdd2" class="form-control" >
                         <option value="">---</option>
                         <option value="nema">Nema</option>
@@ -173,7 +172,7 @@ include_once './includes/header.php';
             <div class="form-row">
 
                 <div class="form-group col-lg-3 col-md-6">
-                    <label for="os">Operativni sistem<span id="obavezna_polja"> *</span></label>
+                    <label for="os">Operativni sistem<span class="obavezna_polja"> *</span></label>
                     <select id="os" name="os" class="form-control" >
                         <option value="Nema">Nema</option>
                         <option value="Windows">Windows</option>
@@ -187,13 +186,13 @@ include_once './includes/header.php';
                         <input class="form-check-input" type="checkbox" id="gar" name="gar" onclick="let garancija = document.getElementById('garancija'); if(this.checked){garancija.disabled = false; garancija.focus();}else{garancija.disabled = true;}">
                         <input id="garancija" name="garancija" class="form-control" type="int" placeholder="u mesecima" disabled="disabled">
                     </div>
-                    <small>*Ukoliko je laptop još uvek pod garancijom čekirajte kvadratić</small>
+                    <small class="info text-info">*Ukoliko je laptop još uvek pod garancijom čekirajte kvadratić</small>
                 </div>
 
                 <div class="form-group col-lg-6 col-md-12">
                     <label for="slob_opis">Slobodan opis laptopa</label>
                     <textarea class="form-control" id="slob_opis" name="slob_opis" cols="30" rows="5"></textarea>
-                    <small>*Što detaljnije opišite stanje laptopa koji oglašavate</small>
+                    <small class="info text-info">*Što detaljnije opišite stanje laptopa koji oglašavate</small>
                 </div>
 
             </div>
@@ -201,7 +200,7 @@ include_once './includes/header.php';
             <div id="pr" class="form-row mb-3">
 
                 <div class="form-group col-md-6">
-                    <label for="Lokacija">Lokacija<span id="obavezna_polja"> *</span></label>
+                    <label for="Lokacija">Lokacija<span class="obavezna_polja"> *</span></label>
                     <input class="form-control" type="text" id="Lokacija" name="Lokacija" placeholder="npr. Beograd, Zvezdara">
                 </div>
 

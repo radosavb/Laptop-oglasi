@@ -57,7 +57,11 @@
             <legend><?php echo $oglas->naziv ?></legend>
                 <tr>
                     <td class="">Cena:</td>
-                    <td class="text-danger px-1"> <?php echo $oglas->cena ?> </td>
+                    <td class="text-danger h4 px-1"> <?php echo $oglas->cena ?> </td>
+                </tr>
+                <tr>
+                    <td class="">Datum postavljanja oglasa: </td>
+                    <td class="font-italic px-1"> <?php echo $oglas->datum_oglasa ?> </td>                    
                 </tr>
                 <tr>
                     <td class="">Procesor: </td>
@@ -77,11 +81,17 @@
                 </tr>
                 <tr>
                     <td class="">HDD: </td>
-                    <td class="px-1"> <?php echo $oglas->hdd1 . ' GB <br>' . $oglas->hdd1_opis ?> </td>
+                    <td class="px-1"> <?php if($oglas->hdd1 = "nema"){
+                        echo "$oglas->hdd1". "  <br>" . $oglas->hdd1_opis ;
+                        }else{
+                            echo "$oglas->hdd1" . " GB <br>" . $oglas->hdd1_opis;} ?> </td>
                 </tr>
                 <tr>
                     <td class="">SSD: </td>
-                    <td class="px-1"> <?php echo $oglas->hdd2 . ' GB <br>' . $oglas->hdd2_opis ?> </td>
+                    <td class="px-1"> <?php if($oglas->hdd1 = "nema"){
+                        echo "$oglas->hdd2". "  <br>" . $oglas->hdd2_opis ;
+                        }else{
+                            echo "$oglas->hdd2" . " GB <br>" . $oglas->hdd2_opis;} ?> </td>
                 </tr>
                 <tr>
                     <td class="">Operativni sistem: </td>
