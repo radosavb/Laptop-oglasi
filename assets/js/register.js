@@ -61,27 +61,29 @@ document.getElementById("submit").addEventListener("click", function (e) {
 
   if (email === "") {
     greska_email.textContent = "Email je obavezan!";
+  } else {
+    //jednostavna provera za email
+    let at = -1, tacka = -1;
+    for (let i = 0; i < email.length; i++) {
+      let karakter = email.charAt(i);
+      if (karakter === '@') {
+        at = i;
+      }
+      else if (karakter === '.') {
+        tacka = i;
+      }
+    }
+    if (at == -1 || tacka == -1 || at > tacka) {
+      greska_email.textContent = "Neispravna email adresa";
+    }
   }
 
-  //jednostavna provera za email
-  let at = -1, tacka = -1;
-  for (let i = 0; i < email.length; i++) {
-    let karakter = email.charAt(i);
-    if (karakter === '@') {
-      at = i;
-    }
-    else if (karakter === '.') {
-      tacka = i;
-    }
-  }
-  if (at == -1 || tacka == -1 || at > tacka) {
-    greska_email.textContent = "Neispravna email adresa";
-
-  }
   //proverava da li se unete sifre podudaraju
   if (sifra === "" || sifra_provera === "") {
     greska_sifra.textContent = "Šifra je obavezna!";
 
+  } else if(sifra.length < 6) {
+    greska_sifra.textContent = "Šifra mora da se sastoji iz 6 ili više karaktera!";
   } else if (sifra !== sifra_provera) {
     greska_sifra.textContent = "Unete šifre se ne slažu";
   }
@@ -122,7 +124,7 @@ document.getElementById("submit").addEventListener("click", function (e) {
     return false;
   }
   registerUser();
-  
+
   json_odgovor.className = "loader";
 
   async function registerUser() {
