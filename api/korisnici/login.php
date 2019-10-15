@@ -7,8 +7,8 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 
-include_once 'config/database.php';
-include_once 'models/korisnici.php';
+include_once '../../config/database.php';
+include_once '../../models/korisnici.php';
  
 $database = new Database();
 $db = $database->connect();
@@ -22,11 +22,11 @@ $user->email = $data->email;
 $email_exists = $user->emailExists();
  
 // generate json web token
-include_once 'config/core.php';
-include_once 'php-jwt-master/src/BeforeValidException.php';
-include_once 'php-jwt-master/src/ExpiredException.php';
-include_once 'php-jwt-master/src/SignatureInvalidException.php';
-include_once 'php-jwt-master/src/JWT.php';
+include_once '../../config/core.php';
+include_once '../../php-jwt-master/src/BeforeValidException.php';
+include_once '../../php-jwt-master/src/ExpiredException.php';
+include_once '../../php-jwt-master/src/SignatureInvalidException.php';
+include_once '../../php-jwt-master/src/JWT.php';
 use \Firebase\JWT\JWT;
  
 //proverava da li postoji email i ako postoji on upisuje ostale podatke u user, recimo ovde $user->password, pogledaj lepo funkciju u user.php
@@ -65,6 +65,6 @@ else{
  
     http_response_code(401);
  
-    echo json_encode(array("message" => "Neuspešna prijava."),JSON_UNESCAPED_UNICODE);
+    echo json_encode(array("message" => "Pogresan email ili šifra."),JSON_UNESCAPED_UNICODE);
 }
 ?>
