@@ -125,7 +125,11 @@
             </tr>
             <tr>
                 <td class="">Broj telefona: </td>
-                <td class="px-1"> <?php echo $korisnik->tel ?> </td>
+                <td class="px-1"> <?php echo "0" . $korisnik->tel ?> </td>
+            </tr>
+            <tr>
+                <td class="">Član od: </td>
+                <td class="px-1"> <?php $skr_datum = substr($korisnik->created,0,10); echo $skr_datum;?> </td>
             </tr>
 
         </table>

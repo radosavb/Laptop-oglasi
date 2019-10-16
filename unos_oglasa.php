@@ -48,7 +48,7 @@ include_once './includes/header.php';
                 </div>
                 <div class="form-group col-md-1 col-6">
                     <label for="valuta">Valuta:</label>
-                    <input type="readonly" value="RSD" id="valuta" name="valuta" class="form-control">
+                    <input readonly value="RSD" id="valuta" name="valuta" class="form-control">
                 </div>
             </div>
 
@@ -281,6 +281,7 @@ include_once './includes/header.php';
 });
     unos_oglasa.onreset = function() {
     var prozor = window.confirm("Podaci će biti obrisani. Da li ste sigurni?");
+	return prozor;
 };
 </script>
 

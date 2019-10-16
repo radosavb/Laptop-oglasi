@@ -5,6 +5,16 @@
 #kartica:hover {
     box-shadow: 10px 10px 50px lightgrey; 
 }
+.page-link {
+    
+}
+.page-link:visited{
+    color: #F8CF40;
+    background:rgb(1, 58, 105);
+}
+.page-link:active{
+    background: rgb(87, 160, 211);
+}
     </style>
 </head>
 
@@ -139,7 +149,25 @@ if (
     }
 } else {
     //ispisuje sve podatke iz tabele ako search nije postavljen
-    $sql = 'SELECT * FROM oglas';
+    
+    $sql = "SELECT * FROM oglas";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    // $oglasi = $stmt->fetchAll();
+
+    $rezultata_po_stranici = 5;
+    $broj_oglasa = $stmt->rowCount();
+    $broj_stranica = ceil($broj_oglasa/$rezultata_po_stranici);
+
+    if(!isset($_GET['page'])){
+        $page = 1;
+    } else {
+        $page = $_GET['page'];
+    }
+
+    $pocetni_oglas = ($page-1)*$rezultata_po_stranici;
+
+    $sql = "SELECT * FROM oglas LIMIT " . $pocetni_oglas . ',' . $rezultata_po_stranici;
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $oglasi = $stmt->fetchAll();
@@ -166,8 +194,15 @@ if (
                 </tr>
             </table>
             <p class="card-text ">'. $kratak_opis .'...</p>
-            <a href="./read_single_oglas.php?oglas_id=' . $oglas->oglas_id. '" class="btn btn-primary w-100">Detaljnije</a>
+            <a href="./read_single_oglas.php?oglas_id=' . $oglas->oglas_id . '" class="btn btn-primary w-100">Detaljnije</a>
         </div>
     </div>';
     }
+        echo '<div class="container d-flex justify-content-center">
+            <ul class="pagination my-3"';
+        for($page = 1; $page <= $broj_stranica; $page++){
+            echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
+        }
+        echo '</ul></div>';
+
 }
