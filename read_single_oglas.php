@@ -26,9 +26,9 @@
     $stmt = $db->prepare($query);
     $stmt->execute(['oglas_id' => $oglas_id]);
     $oglas = $stmt->fetch();
+    
+    $user_id = $oglas->user_id;
 
-    //Potrebno je formirati upit da bi se dobio id usera koji je kreirao oglas kada se doda kolona user_id u tabelu oglas
-    $user_id = 1;
     $query1 = 'SELECT * FROM korisnici WHERE user_id = :user_id';
     $stmt1 = $db->prepare($query1);
     $stmt1->execute(['user_id' => $user_id]);
@@ -61,7 +61,7 @@
                 </tr>
                 <tr>
                     <td class="">Datum postavljanja oglasa: </td>
-                    <td class="font-italic px-1"> <?php echo $oglas->datum_oglasa ?> </td>                    
+                    <td class="text-primary font-italic px-1"> <?php $org_datum = $oglas->datum_oglasa; $novi_datum = date("d.m.Y", strtotime($org_datum)); echo $novi_datum; ?> </td>                    
                 </tr>
                 <tr>
                     <td class="">Procesor: </td>
@@ -81,17 +81,17 @@
                 </tr>
                 <tr>
                     <td class="">HDD: </td>
-                    <td class="px-1"> <?php if($oglas->hdd1 = "nema"){
-                        echo "$oglas->hdd1". "  <br>" . $oglas->hdd1_opis ;
+                    <td class="px-1"> <?php if($oglas->hdd1 != "nema"){
+                        echo $oglas->hdd1 . "  GB<br>" . $oglas->hdd1_opis ;
                         }else{
-                            echo "$oglas->hdd1" . " GB <br>" . $oglas->hdd1_opis;} ?> </td>
+                            echo $oglas->hdd1 . " <br>" . $oglas->hdd1_opis;} ?> </td>
                 </tr>
                 <tr>
                     <td class="">SSD: </td>
-                    <td class="px-1"> <?php if($oglas->hdd1 = "nema"){
-                        echo "$oglas->hdd2". "  <br>" . $oglas->hdd2_opis ;
+                    <td class="px-1"> <?php if($oglas->hdd2 != "nema"){
+                        echo $oglas->hdd2. "  GB<br>" . $oglas->hdd2_opis ;
                         }else{
-                            echo "$oglas->hdd2" . " GB <br>" . $oglas->hdd2_opis;} ?> </td>
+                            echo $oglas->hdd2 . " <br>" . $oglas->hdd2_opis;} ?> </td>
                 </tr>
                 <tr>
                     <td class="">Operativni sistem: </td>
@@ -129,7 +129,7 @@
             </tr>
             <tr>
                 <td class="">Član od: </td>
-                <td class="px-1"> <?php $skr_datum = substr($korisnik->created,0,10); echo $skr_datum;?> </td>
+                <td class="px-1"> <?php $org_datum = $korisnik->created; $novi_datum = date("d.m.Y", strtotime($org_datum)); echo $novi_datum;?> </td>
             </tr>
 
         </table>
