@@ -39,7 +39,7 @@
                 <!-- Side bar right -->
                 <div class="col-md-2 bg-light text-center">
                     <button id="unos" class="btn btn-lg text-center my-4" type="button">OBJAVI OGLAS</button>
-
+                    <div id="poruka"></div>
                 </div>
             </div>
         </div>

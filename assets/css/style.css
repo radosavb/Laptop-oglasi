@@ -65,6 +65,10 @@ a {
     border-bottom: 1px solid #39ff14;
 }
 
+#login_email:focus {
+    background: #39ff14;
+}
+
 #registracija_dugme {
     background: rgb(19, 19, 19);
     color: white;
@@ -180,8 +184,13 @@ label {
     font-weight: bold;
 }
 
-.page-link {
-    color: purple;
+#kartica:hover {
+    box-shadow: 10px 10px 50px lightgrey;
+}
+
+.trenutna {
+    color: white;
+    background: rgb(1, 58, 105);
 }
 
 footer a {

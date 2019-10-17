@@ -1,4 +1,4 @@
-document.getElementById("login_submit").addEventListener("click", function (e) {
+document.getElementById("login_submit").addEventListener("click", function(e) {
 
     let loginEmail = document.getElementById("login_email").value.trim();
     let loginSifra = document.getElementById("login_sifra").value.trim();
@@ -65,7 +65,7 @@ function getCookie() {
     return jwt;
 }
 
-async function getUsername() {    
+async function getUsername() {
     let jwt = getCookie();
     const dataJWT = {
         jwt: jwt
@@ -108,10 +108,11 @@ if (getCookie() === undefined || getCookie() === "" || getCookie() === "undefine
         });
 }
 //odjavljuje se i brise cookie
-document.getElementById("odjava").addEventListener("click", function () {
+document.getElementById("odjava").addEventListener("click", function() {
     if (confirm("Da li ste sigurni da želite da se odjavite?")) {
         setCookie("jwt", "", 1);
         showLogin();
+        document.location.href = 'index.php';
     } else return;
 
 });

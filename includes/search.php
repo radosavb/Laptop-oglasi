@@ -1,20 +1,7 @@
 <!DOCTYPE html>
-
 <head>
     <style>
-#kartica:hover {
-    box-shadow: 10px 10px 50px lightgrey; 
-}
-.page-link {
-    
-}
-.page-link:visited{
-    color: #F8CF40;
-    background:rgb(1, 58, 105);
-}
-.page-link:active{
-    background: rgb(87, 160, 211);
-}
+
     </style>
 </head>
 
@@ -167,7 +154,7 @@ if (
 
     $pocetni_oglas = ($page-1)*$rezultata_po_stranici;
 
-    $sql = "SELECT * FROM oglas LIMIT " . $pocetni_oglas . ',' . $rezultata_po_stranici;
+    $sql = "SELECT * FROM oglas ORDER BY oglas_id DESC LIMIT " . $pocetni_oglas . ',' . $rezultata_po_stranici;
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $oglasi = $stmt->fetchAll();
@@ -200,8 +187,16 @@ if (
     }
         echo '<div class="container d-flex justify-content-center">
             <ul class="pagination my-3"';
-        for($page = 1; $page <= $broj_stranica; $page++){
-            echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
+            if(!isset($_GET['page'])){
+                $_GET['page'] = 1;
+            }
+        for($page = 1; $page <= $broj_stranica; $page++){     
+            $trenutna = 'trenutna';           
+            if($page == $_GET['page']){        
+                echo '<li class="page-item"><a class="page-link '.$trenutna.'" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
+            }else{
+                echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
+            }
         }
         echo '</ul></div>';
 

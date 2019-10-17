@@ -60,7 +60,7 @@
                     <td class="text-danger h4 px-1"> <?php echo $oglas->cena ?> </td>
                 </tr>
                 <tr>
-                    <td class="">Datum postavljanja oglasa: </td>
+                    <td class="">Datum objave oglasa: </td>
                     <td class="text-primary font-italic px-1"> <?php $org_datum = $oglas->datum_oglasa; $novi_datum = date("d.m.Y", strtotime($org_datum)); echo $novi_datum; ?> </td>                    
                 </tr>
                 <tr>
