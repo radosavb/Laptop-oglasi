@@ -1,6 +1,9 @@
+RewriteEngine On
+
 #Pretvara /api/oglasi/read.php?oglas_id=1
 #U api/oglasi/id/1
-
-RewriteEngine On
 RewriteRule ^/?id/([^/d]+)/?$ read.php?oglas_id=$1 [L,QSA]
+
+#brise .php sa kraja
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
