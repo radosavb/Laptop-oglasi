@@ -36,7 +36,7 @@ $post->hdd2 = $data->hdd2;
 $post->hdd2_opis = $data->hdd2_opis;
 $post->os = $data->os;
 $post->slob_opis = $data->slob_opis;
-$post->Lokacija = $data->Lokacija;
+$post->lokacija = $data->lokacija;
 $post->garancija = $data->garancija;
 $post->user_id = $data->user_id;
 

@@ -200,8 +200,8 @@ include_once './includes/header.php';
             <div id="pr" class="form-row mb-3">
 
                 <div class="form-group col-md-6">
-                    <label for="Lokacija">Lokacija<span class="obavezna_polja"> *</span></label>
-                    <input class="form-control" type="text" id="Lokacija" name="Lokacija" placeholder="npr. Beograd, Zvezdara">
+                    <label for="lokacija">Lokacija<span class="obavezna_polja"> *</span></label>
+                    <input class="form-control" type="text" id="lokacija" name="lokacija" placeholder="npr. Beograd, Zvezdara">
                 </div>
 
 
@@ -230,7 +230,7 @@ include_once './includes/header.php';
     let hdd = document.getElementById('hdd1');
     let ssd = document.getElementById('hdd2');
     let os = document.getElementById('os');
-    let lokacija = document.getElementById('Lokacija');
+    let lokacija = document.getElementById('lokacija');
     let greska_ispis = document.getElementById('greska_ispis');
 
     unos_oglasa.addEventListener('submit', (e) => {

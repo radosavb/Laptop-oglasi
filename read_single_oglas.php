@@ -103,7 +103,7 @@
                 </tr>
                 <tr>
                     <td class="">Lokacija: </td>
-                    <td class="px-1"> <?php echo $oglas->Lokacija ?> </td>
+                    <td class="px-1"> <?php echo $oglas->lokacija ?> </td>
                 </tr>
                 <tr>
                     <td class="">Opis laptopa: </td>

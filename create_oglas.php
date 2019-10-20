@@ -76,7 +76,7 @@ $hdd2 = $_POST['hdd2'];
 $hdd2_opis = htmlspecialchars(strip_tags($_POST['hdd2_opis']));
 $os = $_POST['os'];
 $slob_opis = htmlspecialchars(strip_tags($_POST['slob_opis']));
-$Lokacija = htmlspecialchars(strip_tags($_POST['Lokacija']));
+$lokacija = htmlspecialchars(strip_tags($_POST['lokacija']));
 if (isset($_POST['garancija'])) {
   $garancija = $_POST['garancija'];
 } else {
@@ -138,9 +138,9 @@ if (isset($_POST['predaj_oglas'])) {
 
   move_uploaded_file($slika_tmp, $target);
 
-  $sql = 'INSERT INTO oglas (naziv, cena, slika, cpu, cpu_opis, ram, tip_rama, gpu, gpu_opis, ekran, ekran_opis, hdd1, hdd1_opis, hdd2, hdd2_opis, os, slob_opis, Lokacija, garancija, user_id) VALUES (:naziv, :cena,:slika, :cpu, :cpu_opis, :ram, :tip_rama, :gpu, :gpu_opis, :ekran, :ekran_opis, :hdd1, :hdd1_opis, :hdd2, :hdd2_opis, :os, :slob_opis, :Lokacija, :garancija, :user_id)';
+  $sql = 'INSERT INTO oglas (naziv, cena, slika, cpu, cpu_opis, ram, tip_rama, gpu, gpu_opis, ekran, ekran_opis, hdd1, hdd1_opis, hdd2, hdd2_opis, os, slob_opis, lokacija, garancija, user_id) VALUES (:naziv, :cena,:slika, :cpu, :cpu_opis, :ram, :tip_rama, :gpu, :gpu_opis, :ekran, :ekran_opis, :hdd1, :hdd1_opis, :hdd2, :hdd2_opis, :os, :slob_opis, :lokacija, :garancija, :user_id)';
   $stmt = $db->prepare($sql);
-  $stmt->execute(['naziv' => $naziv, 'cena' => $cena, 'slika' => $slika, 'cpu' => $cpu, 'cpu_opis' => $cpu_opis, 'ram' => $ram, 'tip_rama' => $tip_rama, 'gpu' => $gpu, 'gpu_opis' => $gpu_opis, 'ekran' => $ekran, 'ekran_opis' => $ekran_opis, 'hdd1' => $hdd1, 'hdd1_opis' => $hdd1_opis, 'hdd2' => $hdd2, 'hdd2_opis' => $hdd2_opis, 'os' => $os, 'slob_opis' => $slob_opis, 'Lokacija' => $Lokacija, 'garancija' => $garancija, 'user_id' => $user_id]);
+  $stmt->execute(['naziv' => $naziv, 'cena' => $cena, 'slika' => $slika, 'cpu' => $cpu, 'cpu_opis' => $cpu_opis, 'ram' => $ram, 'tip_rama' => $tip_rama, 'gpu' => $gpu, 'gpu_opis' => $gpu_opis, 'ekran' => $ekran, 'ekran_opis' => $ekran_opis, 'hdd1' => $hdd1, 'hdd1_opis' => $hdd1_opis, 'hdd2' => $hdd2, 'hdd2_opis' => $hdd2_opis, 'os' => $os, 'slob_opis' => $slob_opis, 'lokacija' => $lokacija, 'garancija' => $garancija, 'user_id' => $user_id]);
 
   echo '<div id="uspeh" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Uspešno ste objavili oglas!</strong> <a href="index.php">Povratak na Početnu stranu</a>

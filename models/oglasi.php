@@ -23,7 +23,7 @@ class Oglas
     public $hdd2_opis;
     public $os;
     public $slob_opis;
-    public $Lokacija;
+    public $lokacija;
     public $garancija;
     public $datum_oglasa;
     public $user_id;
@@ -76,7 +76,7 @@ class Oglas
             $this->hdd2_opis = $row['hdd2_opis'];
             $this->os = $row['os'];
             $this->slob_opis = $row['slob_opis'];
-            $this->Lokacija = $row['Lokacija'];
+            $this->lokacija = $row['lokacija'];
             $this->garancija = $row['garancija'];
             $this->datum_oglasa = $row['datum_oglasa'];
             $this->user_id = $row['user_id'];
@@ -108,7 +108,7 @@ class Oglas
                 hdd2_opis=:hdd2_opis, 
                 os=:os, 
                 slob_opis=:slob_opis, 
-                Lokacija= :Lokacija, 
+                lokacija= :lokacija, 
                 garancija= :garancija, 
                 user_id= :user_id';
 
@@ -133,7 +133,7 @@ class Oglas
         $this->hdd2_opis = htmlspecialchars(strip_tags($this->hdd2_opis));
         $this->os = htmlspecialchars(strip_tags($this->os));
         $this->slob_opis = htmlspecialchars(strip_tags($this->slob_opis));
-        $this->Lokacija = htmlspecialchars(strip_tags($this->Lokacija));
+        $this->lokacija = htmlspecialchars(strip_tags($this->lokacija));
         $this->garancija = htmlspecialchars(strip_tags($this->garancija));
         $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
@@ -155,7 +155,7 @@ class Oglas
         $stmt->bindParam(':hdd2_opis', $this->hdd2_opis);
         $stmt->bindParam(':os', $this->os);
         $stmt->bindParam(':slob_opis', $this->slob_opis);
-        $stmt->bindParam(':Lokacija', $this->Lokacija);
+        $stmt->bindParam(':lokacija', $this->lokacija);
         $stmt->bindParam(':garancija', $this->garancija);
         $stmt->bindParam(':user_id', $this->user_id);
 
@@ -191,7 +191,7 @@ class Oglas
           hdd2_opis=:hdd2_opis, 
           os=:os, 
           slob_opis=:slob_opis, 
-          Lokacija= :Lokacija, 
+          lokacija= :lokacija, 
           garancija= :garancija, 
           user_id= :user_id
          WHERE 
@@ -218,7 +218,7 @@ class Oglas
         $this->hdd2_opis = htmlspecialchars(strip_tags($this->hdd2_opis));
         $this->os = htmlspecialchars(strip_tags($this->os));
         $this->slob_opis = htmlspecialchars(strip_tags($this->slob_opis));
-        $this->Lokacija = htmlspecialchars(strip_tags($this->Lokacija));
+        $this->lokacija = htmlspecialchars(strip_tags($this->lokacija));
         $this->garancija = htmlspecialchars(strip_tags($this->garancija));
         $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
@@ -242,7 +242,7 @@ class Oglas
         $stmt->bindParam(':hdd2_opis', $this->hdd2_opis);
         $stmt->bindParam(':os', $this->os);
         $stmt->bindParam(':slob_opis', $this->slob_opis);
-        $stmt->bindParam(':Lokacija', $this->Lokacija);
+        $stmt->bindParam(':lokacija', $this->lokacija);
         $stmt->bindParam(':garancija', $this->garancija);
         $stmt->bindParam(':user_id', $this->user_id);
 

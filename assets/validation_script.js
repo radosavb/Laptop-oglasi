@@ -24,7 +24,7 @@ dugme_unos.addEventListener('click', function() {
 // let hdd = document.getElementById('hdd1');
 // let ssd = document.getElementById('hdd2');
 // let os = document.getElementById('os');
-// let lokacija = document.getElementById('Lokacija');
+// let lokacija = document.getElementById('lokacija');
 // let greska_ispis = document.getElementById('greska_ispis');
 
 // unos_oglasa.addEventListener('submit', (e) => {
