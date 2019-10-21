@@ -40,11 +40,11 @@
 
         <div id="social_media" class="row pt-2 pb-5">
             <div class="wrapper col-md-6 offset-md-3 d-flex justify-content-center">
-                <a target="_blank" href="your_url_here"><i class="fa fa-3x fa-facebook-square"></i></a>
-                <a target="_blank" href="your_url_here"><i class="fa fa-3x fa-twitter-square"></i></a>
-                <a target="_blank" href="your_url_here"><i class="fa fa-3x fa-laptop"></i></a>
-                <a target="_blank" href="your_url_here"><i class="fa fa-3x fa-github-square"></i></a>
-                <a target="_blank" href="your_url_here"><i class="fa fa-3x fa-linkedin"></i></a>
+                <a target="_blank" href="#"><i class="fa fa-3x fa-facebook-square"></i></a>
+                <a target="_blank" href="#"><i class="fa fa-3x fa-twitter-square"></i></a>
+                <a target="_blank" href="#"><i class="fa fa-3x fa-laptop"></i></a>
+                <a target="_blank" href="#"><i class="fa fa-3x fa-github-square"></i></a>
+                <a target="_blank" href="#"><i class="fa fa-3x fa-linkedin"></i></a>
                 
             </div>
         </div>

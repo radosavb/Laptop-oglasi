@@ -8,7 +8,7 @@ dugme_unos.addEventListener('click', function() {
     ) {
         document.location.href = 'unos_oglasa.php';
     } else {
-        poruka.innerHTML = "<p class='bg-danger text-white p-4' style= 'border-radius:12px;'>Molimo Vas da se <a class='text-success' style='text-shadow: 2px 2px 5px black; font-weight:bold;' href='#login_email'>PRIJAVITE</a> ili <a class='text-success' style='text-shadow: 2px 2px 5px black;font-weight:bold;' href='./register.php'>REGISTRUJETE</a></p>";
+        poruka.innerHTML = "<p class='bg-danger text-white p-4' style= 'border-radius:12px;'>Molimo Vas da se <a class='text-light' style='text-shadow: 2px 2px 5px black; font-weight:bold;' href='#login_email'>PRIJAVITE</a> ili <a class='text-light' style='text-shadow: 2px 2px 5px black;font-weight:bold;' href='./register.php'>REGISTRUJETE</a></p>";
     }
 });
 

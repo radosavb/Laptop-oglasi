@@ -3,8 +3,10 @@
 
 <head>
     <?php
-    //Ubacuje css, bootstrap i ostalo
+    //Ubacuje css, bootstrap i ostalo    
     include_once './includes/head.php';
+    //ukljucen ekran za učitavanje
+    include_once './includes/loader.php';
     ?>
     <!-- title nisam ukljucio u head.php jer ce da se menja u zavisnosti od stranice -->
     <title>Laptopdrom | specijalizovan sajt za polovne laptopove</title>
@@ -13,6 +15,7 @@
 <body>
 
     <?php
+    
     include_once './includes/header.php';
     ?>
 
@@ -31,6 +34,7 @@
                     <div class="row d-flex justify-content-center">
 
                         <?php
+                        
                         include_once 'includes/search.php';
                         ?>
 
