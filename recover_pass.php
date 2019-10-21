@@ -59,10 +59,13 @@ if ($user->emailExists()) {
     if (!$mail->Send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
-        header("Location: index.php");
-        echo "Message has been sent";
+        echo "Poruka: Nova šifra je poslata na Vaš email";
+        // echo json_encode(array("error" => false,"message" => "Korisnik je kreiran."), JSON_UNESCAPED_UNICODE);
+
     }
 } else {
-    echo "Mail ne postoji u bazi";    
-    header("Location: index.php");
+    echo "Poruka: Mail ne postoji u bazi";
+    // echo json_encode(array("error" => false,"message" => "Korisnik nije kreiran."), JSON_UNESCAPED_UNICODE);
+
+
 }

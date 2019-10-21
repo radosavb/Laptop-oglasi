@@ -21,7 +21,7 @@
         <a class="nav-link text-white" href="#">Laptopovi</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">O nama</a>
+        <a class="nav-link text-white text-nowrap" href="#">O nama</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="#">Kontakt</a>
@@ -40,15 +40,16 @@
     </form>
     <!-- dropdown meni za dugme zaboravljena sifra -->
     <div class="dropdown"  id="forgot_pass">
-      <button class="btn btn-warning dropdown-toggle mr-2 mb-2" type="button" data-toggle="dropdown">
+      <button class="btn btn-warning dropdown-toggle mr-2 mb-2" type="button"  data-toggle="dropdown">
         Zaboravljena šifra?
       </button>
       <form class="dropdown-menu p-4" action="recover_pass.php" method="POST">
         <div class="form-group">
           <label for="emailDropdown">Poslaćemo Vam novu šifru na email</label>
           <input type="email" class="form-control" name="forgot_email" id="forgot_email" required placeholder="Unesite Vaš email...">
-        </div>
-        <button type="submit" class="btn btn-primary">Pošalji</button>
+        </div>        
+        <p class="text-danger" id="forgot_message"></p> 
+        <button type="button" id="reset_pass" class="btn btn-primary">Pošalji</button>        
       </form>
     </div>
     </div>
@@ -59,3 +60,4 @@
   </ul>
 </nav>
 <script src="assets/js/login.js"></script>
+<script src="assets/js/password_reset.js"></script>
