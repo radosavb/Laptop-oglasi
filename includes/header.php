@@ -38,6 +38,21 @@
       <!-- Registracija treba da vodi na drugu stranicu sa formularom za registraciju - Milos -->
       <a id="registracija_dugme" class="btn mr-2 mb-2" href="register.php">Registracija</a>
     </form>
+    <!-- dropdown meni za dugme zaboravljena sifra -->
+    <div class="dropdown"  id="forgot_pass">
+      <button class="btn btn-warning dropdown-toggle mr-2 mb-2" type="button" data-toggle="dropdown">
+        Zaboravljena šifra?
+      </button>
+      <form class="dropdown-menu p-4" action="recover_pass.php" method="POST">
+        <div class="form-group">
+          <label for="emailDropdown">Poslaćemo Vam novu šifru na email</label>
+          <input type="email" class="form-control" name="forgot_email" id="forgot_email" required placeholder="Unesite Vaš email...">
+        </div>
+        <button type="submit" class="btn btn-primary">Pošalji</button>
+      </form>
+    </div>
+    </div>
+
     <div id="profil">
       <span class="text-white px-2">Profil: <span class="text-white text-capitalize font-weight-bold" id="ime_korisnika"></span></span><button id="odjava" class="btn btn-primary">Odjava</button>
     </div>

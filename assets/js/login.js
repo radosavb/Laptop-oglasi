@@ -88,11 +88,13 @@ async function getUsername() {
 //pokazuje ulogovan profil
 function showProfile() {
     document.getElementById("login_form").style.display = "none";
-    document.getElementById("profil").style.display = "block";
+    document.getElementById("forgot_pass").style.display = "none";
+    document.getElementById("profil").style.display = "block";    
 }
 //pokazuje form za login
 function showLogin() {
     document.getElementById("login_form").style.display = "block";
+    document.getElementById("forgot_pass").style.display = "block";
     document.getElementById("profil").style.display = "none";
 }
 

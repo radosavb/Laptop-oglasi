@@ -103,4 +103,49 @@ class Korisnik
         // false ako mail ne postoji
         return false;
     }
+
+    public function update()
+    {
+
+        $query = 'UPDATE ' . $this->table . '
+        SET                           
+          ime= :ime, 
+          prezime= :prezime, 
+          sifra= :sifra, 
+          tel= :tel, 
+          adresa= :adresa, 
+          mode= :mode
+         WHERE 
+          user_id= :user_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        //"cistimo unos", skidamo html tagove  
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
+        $this->ime = htmlspecialchars(strip_tags($this->ime));
+        $this->prezime = htmlspecialchars(strip_tags($this->prezime));
+        $this->sifra = htmlspecialchars(strip_tags($this->sifra));
+        $this->tel = htmlspecialchars(strip_tags($this->tel));
+        $this->adresa = htmlspecialchars(strip_tags($this->adresa));
+        $this->mode = htmlspecialchars(strip_tags($this->mode));
+
+
+        //povezijemo podatke sa query 
+        $stmt->bindParam(':user_id', $this->user_id);
+        $stmt->bindParam(':ime', $this->ime);
+        $stmt->bindParam(':prezime', $this->prezime);
+        $sifra_hash = password_hash($this->sifra, PASSWORD_BCRYPT);
+        $stmt->bindParam(':sifra', $sifra_hash);        
+        $stmt->bindParam(':tel', $this->tel);
+        $stmt->bindParam(':adresa', $this->adresa);
+        $stmt->bindParam(':mode', $this->mode);        
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        //ako postoji greska ispisuje je
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+    }
 }
