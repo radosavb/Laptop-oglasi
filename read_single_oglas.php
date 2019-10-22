@@ -1,17 +1,12 @@
 <head>
-
-   <style>
-    td:first-of-type{
-        font-weight: bold;
-        width: 200px;
-    }
-        
-   </style>
-
+<?php
+include_once './includes/head.php';
+?>
+<title>Laptopdrom | Oglas</title>
 </head>
 
 <?php
-    include_once './includes/head.php';
+    
     include_once './config/database.php';
     include_once './includes/header.php';
 
@@ -53,7 +48,7 @@
     <div class="row">
         <div class="col-md-7">
             
-        <table class="table table-sm table-striped w-100">
+        <table id="tabela_pojedinacno" class="table table-sm table-striped w-100">
             <legend><?php echo $oglas->naziv ?></legend>
                 <tr>
                     <td class="">Cena:</td>
@@ -113,7 +108,7 @@
         </div>
 
         <div class="col-md-5">
-        <table class="table table-sm table-striped w-100">
+        <table id="tabela_korisnik" class="table table-sm table-striped w-100">
         <legend>Podaci o prodavcu</legend>
             <tr>
                 <td class="">Ime:</td>

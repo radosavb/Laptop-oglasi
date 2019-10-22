@@ -7,7 +7,7 @@
 </head>
 
 <header>
-  <h1 id="naslov" class="display-4 pt-4 my-0 text-center">LAPTOP OGLASI</h1>
+  <h1 id="naslov" class="display-4 pt-4 my-0 text-center">LAPTOPDROM</h1>
 </header>
 
 <nav id="navbar" class="navbar bg-primary navbar-dark navbar-expand-lg sticky-top">

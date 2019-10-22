@@ -98,7 +98,7 @@ if (
 		 AND os IN('" . $filter . "')
 		";
     }
-   
+    $query .= " ORDER BY oglas_id DESC";
     $stmt = $db->prepare($query);
     $stmt->execute();
     $oglasi = $stmt->fetchAll();

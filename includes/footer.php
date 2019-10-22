@@ -51,7 +51,7 @@
 
     </footer>
 
-    <script src="./assets/validation_script.js">
+    <script src="./assets/js/unos_oglasa.js">
 
     </script>
 

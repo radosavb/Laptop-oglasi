@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 
 <head>
-  <style>
-    #uspeh,
-    #neuspeh {
-      position: fixed;
-      left: 100px;
-      top: 180px;
-    }
-
-    #neuspeh1 {
-      position: fixed;
-      left: 100px;
-      top: 230px;
-    }
-  </style>
+<?php
+include_once './includes/head.php';
+?>
 </head>
 
 <?php
 
 include_once 'unos_oglasa.php';
-include_once './includes/head.php';
 include_once './config/database.php';
 
 function getUserId()

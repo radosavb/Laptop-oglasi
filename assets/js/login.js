@@ -79,7 +79,6 @@ async function getUsername() {
     };
 
     const response = await fetch("api/korisnici/validate_token.php", paramJWT);
-    console.log("JWT", response);
     const odgovor = await response.json();
     let ime = odgovor.data.ime;
     return ime;
