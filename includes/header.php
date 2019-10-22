@@ -55,7 +55,7 @@
     </div>
 
     <div id="profil">
-      <span class="text-white px-2">Profil: <span class="text-white text-capitalize font-weight-bold" id="ime_korisnika"></span></span><button id="odjava" class="btn btn-primary">Odjava</button>
+    <span class="text-white px-2">Profil: <a href="profil.php" class="text-white text-capitalize font-weight-bold" id="ime_korisnika"></a></span><button id="odjava" class="btn btn-primary">Odjava</button>
     </div>
   </ul>
 </nav>

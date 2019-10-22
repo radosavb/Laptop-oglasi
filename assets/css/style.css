@@ -410,3 +410,14 @@ footer {
 #profil {
     display: none;
 }
+
+#korisnickiProfil table td:first-child{
+    width:25%;
+}
+#nisteUlogovani{
+    display: none;
+}
+
+#oglasiTabela tr td:first-child{
+    width:100px;
+}
