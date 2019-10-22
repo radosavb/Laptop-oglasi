@@ -67,9 +67,6 @@
 
     </div>
     <script src="./assets/js/profil.js"></script>
-
-
-
     <!-- Footer -->
     <?php
     include_once './includes/footer.php';
