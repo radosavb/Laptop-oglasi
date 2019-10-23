@@ -50,7 +50,7 @@ $oglas = oglasPodaci();
             <div class="form-row mb-3">
                 <div class="form-group col-md-6">
                     <label for="naziv" class="">Naziv laptopa<span class="obavezna_polja"> *</span></label>
-                    <input type="text" id="naziv" name="naziv" class="form-control" value="<?php echo $oglas->naziv?>">
+                    <input type="text" id="naziv" name="naziv" class="form-control" value="<?php echo $oglas->naziv ?>">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="dodaj_sliku">Dodaj sliku:</label>
@@ -58,7 +58,7 @@ $oglas = oglasPodaci();
                 </div>
                 <div class="form-group col-md-2 col-6">
                     <label for="cena" class="">Cena:<span class="obavezna_polja"> *</span></label>
-                    <input type="int" id="cena" name="cena" class="form-control" value="<?php echo $oglas->cena?>">
+                    <input type="int" id="cena" name="cena" class="form-control" value="<?php echo $oglas->cena ?>">
                 </div>
                 <div class="form-group col-md-1 col-6">
                     <label for="valuta">Valuta:</label>
@@ -67,119 +67,117 @@ $oglas = oglasPodaci();
             </div>
 
             <div class="form-row mb-3">
-
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="cpu">Procesor<span class="obavezna_polja"> *</span></label>
                     <select id="cpu" name="cpu" class="form-control">
                         <option value="">---</option>
-                        <option <?php if ($oglas->cpu == 'Intel Core i9') echo "selected"?>>Intel Core i9</option>
-                        <option <?php if ($oglas->cpu == 'Intel Core i7') echo "selected"?>>Intel Core i7</option>
-                        <option <?php if ($oglas->cpu == 'Intel Core i5') echo "selected"?>>Intel Core i5</option>
-                        <option <?php if ($oglas->cpu == 'Intel Core i3') echo "selected"?>>Intel Core i3</option>
-                        <option <?php if ($oglas->cpu == 'Intel Core M') echo "selected"?>>Intel Core M</option>
-                        <option <?php if ($oglas->cpu == 'Intel Pentium') echo "selected"?>>Intel Pentium</option>
-                        <option <?php if ($oglas->cpu == 'Intel Atom') echo "selected"?>>Intel Atom</option>
-                        <option <?php if ($oglas->cpu == 'Intel Celeron') echo "selected"?>>Intel Celeron</option>
-                        <option <?php if ($oglas->cpu == 'Intel Xeon') echo "selected"?>>Intel Xeon</option>
-                        <option <?php if ($oglas->cpu == 'AMD (četvorojezgarni)') echo "selected"?>>AMD (četvorojezgarni)</option>
-                        <option <?php if ($oglas->cpu == 'AMD (dvojezgarni)') echo "selected"?>>AMD (dvojezgarni)</option>
+                        <!-- if petlja proverava koja vrednost je izabrana u oglasu i automatski je selektuje -->
+                        <option <?php if ($oglas->cpu == 'Intel Core i9') echo "selected" ?>>Intel Core i9</option>
+                        <option <?php if ($oglas->cpu == 'Intel Core i7') echo "selected" ?>>Intel Core i7</option>
+                        <option <?php if ($oglas->cpu == 'Intel Core i5') echo "selected" ?>>Intel Core i5</option>
+                        <option <?php if ($oglas->cpu == 'Intel Core i3') echo "selected" ?>>Intel Core i3</option>
+                        <option <?php if ($oglas->cpu == 'Intel Core M') echo "selected" ?>>Intel Core M</option>
+                        <option <?php if ($oglas->cpu == 'Intel Pentium') echo "selected" ?>>Intel Pentium</option>
+                        <option <?php if ($oglas->cpu == 'Intel Atom') echo "selected" ?>>Intel Atom</option>
+                        <option <?php if ($oglas->cpu == 'Intel Celeron') echo "selected" ?>>Intel Celeron</option>
+                        <option <?php if ($oglas->cpu == 'Intel Xeon') echo "selected" ?>>Intel Xeon</option>
+                        <option <?php if ($oglas->cpu == 'AMD (četvorojezgarni)') echo "selected" ?>>AMD (četvorojezgarni)</option>
+                        <option <?php if ($oglas->cpu == 'AMD (dvojezgarni)') echo "selected" ?>>AMD (dvojezgarni)</option>
                     </select>
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="cpu_opis">Opis procesora</label>
-                    <input class="form-control" type="text" id="cpu_opis" name="cpu_opis" value="<?php echo $oglas->cpu_opis?>">
+                    <!-- U inpit polja sa php se upisuje vrednost koja se nalazi u oglasu -->
+                    <input class="form-control" type="text" id="cpu_opis" name="cpu_opis" value="<?php echo $oglas->cpu_opis ?>">
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="ram">RAM<span class="obavezna_polja"> *</span></label>
                     <select id="ram" name="ram" class="form-control">
                         <option value="">---</option>
-                        <option <?php if ($oglas->ram == '1') echo "selected "?> value="1">1 GB</option>
-                        <option <?php if ($oglas->ram == '2') echo "selected "?>value="2">2 GB</option>
-                        <option <?php if ($oglas->ram == '4') echo "selected "?>value="4">4 GB</option>
-                        <option <?php if ($oglas->ram == '6') echo "selected "?>value="6">6 GB</option>
-                        <option <?php if ($oglas->ram == '8') echo "selected "?>value="8">8 GB</option>
-                        <option <?php if ($oglas->ram == '12') echo "selected "?>value="12">12 GB</option>
-                        <option <?php if ($oglas->ram == '16') echo "selected "?>value="16">16 GB</option>
-                        <option <?php if ($oglas->ram == '>16') echo "selected "?>value=">16">više od 16 GB</option>
+                        <option <?php if ($oglas->ram == '1') echo "selected " ?> value="1">1 GB</option>
+                        <option <?php if ($oglas->ram == '2') echo "selected " ?>value="2">2 GB</option>
+                        <option <?php if ($oglas->ram == '4') echo "selected " ?>value="4">4 GB</option>
+                        <option <?php if ($oglas->ram == '6') echo "selected " ?>value="6">6 GB</option>
+                        <option <?php if ($oglas->ram == '8') echo "selected " ?>value="8">8 GB</option>
+                        <option <?php if ($oglas->ram == '12') echo "selected " ?>value="12">12 GB</option>
+                        <option <?php if ($oglas->ram == '16') echo "selected " ?>value="16">16 GB</option>
+                        <option <?php if ($oglas->ram == '>16') echo "selected " ?>value=">16">više od 16 GB</option>
                     </select>
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="tip_rama">Opis RAM memorije</label>
-                    <input class="form-control" type="text" name="tip_rama" id="tip_rama" value="<?php echo $oglas->tip_rama?>">
+                    <input class="form-control" type="text" name="tip_rama" id="tip_rama" value="<?php echo $oglas->tip_rama ?>">
                 </div>
-
             </div>
 
             <div class="form-row mb-3">
-
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="ekran">Ekran<span class="obavezna_polja"> *</span></label>
                     <select id="ekran" name="ekran" class="form-control">
                         <option value="">---</option>
-                        <option value="12"<?php if ($oglas->ekran == '12') echo "selected "?>>12"</option>
-                        <option value="14" <?php if ($oglas->ekran == '14') echo "selected "?>>14"</option>
-                        <option value="15.6"<?php if ($oglas->ekran == '15.6') echo "selected "?>>15.6"</option>
-                        <option value="17.3"<?php if ($oglas->ekran == '17.3') echo "selected "?>>17.3"</option>
+                        <option value="12" <?php if ($oglas->ekran == '12') echo "selected " ?>>12"</option>
+                        <option value="14" <?php if ($oglas->ekran == '14') echo "selected " ?>>14"</option>
+                        <option value="15.6" <?php if ($oglas->ekran == '15.6') echo "selected " ?>>15.6"</option>
+                        <option value="17.3" <?php if ($oglas->ekran == '17.3') echo "selected " ?>>17.3"</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="ekran_opis">Opis ekrana</label>
-                    <input class="form-control" type="text" id="ekran_opis" name="ekran_opis" value="<?php echo $oglas->ekran_opis?>">
+                    <input class="form-control" type="text" id="ekran_opis" name="ekran_opis" value="<?php echo $oglas->ekran_opis ?>">
                 </div>
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="gpu">Grafička kartica:<span class="obavezna_polja"> *</span></label>
                     <select id="gpu" name="gpu" class="form-control">
                         <option value="">---</option>
-                        <option <?php if ($oglas->gpu == 'Integrisana') echo "selected"?>>Integrisana</option>
-                        <option <?php if ($oglas->gpu == 'NVidia') echo "selected"?>>NVidia</option>
-                        <option <?php if ($oglas->gpu == 'ATI Radeon') echo "selected"?>>ATI Radeon</option>
+                        <option <?php if ($oglas->gpu == 'Integrisana') echo "selected" ?>>Integrisana</option>
+                        <option <?php if ($oglas->gpu == 'NVidia') echo "selected" ?>>NVidia</option>
+                        <option <?php if ($oglas->gpu == 'ATI Radeon') echo "selected" ?>>ATI Radeon</option>
                     </select>
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="gpu_opis">Opis GPU</label>
-                    <input class="form-control" type="text" id="gpu_opis" name="gpu_opis" value="<?php echo $oglas->gpu_opis?>">
+                    <input class="form-control" type="text" id="gpu_opis" name="gpu_opis" value="<?php echo $oglas->gpu_opis ?>">
                 </div>
 
             </div>
 
             <div class="form-row mb-3">
-
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="hdd1">HDD<span class="obavezna_polja"> *</span></label>
                     <select id="hdd1" name="hdd1" class="form-control">
                         <option value="">---</option>
-                        <option <?php if ($oglas->hdd1 == 'Nema') echo "selected "?>value="">Nema</option>
-                        <option <?php if ($oglas->hdd1 == '128') echo "selected "?>value="128">HDD 128 GB</option>
-                        <option <?php if ($oglas->hdd1 == '256') echo "selected "?>value="256">HDD 256 GB</option>
-                        <option <?php if ($oglas->hdd1 == '512') echo "selected "?>value="512">HDD 512 GB</option>
-                        <option <?php if ($oglas->hdd1 == '1024') echo "selected "?>value="1024">HDD 1 TB</option>
-                        <option <?php if ($oglas->hdd1 == '2048') echo "selected "?>value="2048">HDD 2 TB</option>
+                        <option <?php if ($oglas->hdd1 == 'Nema') echo "selected " ?>value="">Nema</option>
+                        <option <?php if ($oglas->hdd1 == '128') echo "selected " ?>value="128">HDD 128 GB</option>
+                        <option <?php if ($oglas->hdd1 == '256') echo "selected " ?>value="256">HDD 256 GB</option>
+                        <option <?php if ($oglas->hdd1 == '512') echo "selected " ?>value="512">HDD 512 GB</option>
+                        <option <?php if ($oglas->hdd1 == '1024') echo "selected " ?>value="1024">HDD 1 TB</option>
+                        <option <?php if ($oglas->hdd1 == '2048') echo "selected " ?>value="2048">HDD 2 TB</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="hdd1_opis">Opis HDD</label>
-                    <input class="form-control" type="text" id="hdd1_opis" name="hdd1_opis" value="<?php echo $oglas->hdd1_opis?>">
+                    <input class="form-control" type="text" id="hdd1_opis" name="hdd1_opis" value="<?php echo $oglas->hdd1_opis ?>">
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="hdd2">SSD<span class="obavezna_polja"> *</span></label>
                     <select id="hdd2" name="hdd2" class="form-control">
                         <option value="">---</option>
-                        <option <?php if ($oglas->hdd2 == 'Nema') echo "selected "?>value="">Nema</option>
-                        <option <?php if ($oglas->hdd2 == '128') echo "selected "?>value="128">SSD 128 GB</option>
-                        <option <?php if ($oglas->hdd2 == '256') echo "selected "?>value="256">SSD 256 GB</option>
-                        <option <?php if ($oglas->hdd2 == '512') echo "selected "?>value="512">SSD 512 GB</option>
-                        <option <?php if ($oglas->hdd2 == '1024') echo "selected "?>value="1024">SSD 1 TB</option>
+                        <option <?php if ($oglas->hdd2 == 'Nema') echo "selected " ?>value="">Nema</option>
+                        <option <?php if ($oglas->hdd2 == '128') echo "selected " ?>value="128">SSD 128 GB</option>
+                        <option <?php if ($oglas->hdd2 == '256') echo "selected " ?>value="256">SSD 256 GB</option>
+                        <option <?php if ($oglas->hdd2 == '512') echo "selected " ?>value="512">SSD 512 GB</option>
+                        <option <?php if ($oglas->hdd2 == '1024') echo "selected " ?>value="1024">SSD 1 TB</option>
                     </select>
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="hdd2_opis">Opis SDD</label>
-                    <input class="form-control" type="text" id="hdd2_opis" name="hdd2_opis" value="<?php echo $oglas->hdd2_opis?>">
+                    <input class="form-control" type="text" id="hdd2_opis" name="hdd2_opis" value="<?php echo $oglas->hdd2_opis ?>">
                 </div>
 
             </div>
@@ -188,51 +186,49 @@ $oglas = oglasPodaci();
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="os">Operativni sistem<span class="obavezna_polja"> *</span></label>
                     <select id="os" name="os" class="form-control">
-                        <option <?php if ($oglas->os == 'Nema') echo "selected"?>>Nema</option>
-                        <option <?php if ($oglas->os == 'Windows') echo "selected"?>>Windows</option>
-                        <option <?php if ($oglas->os == 'Linux') echo "selected"?>>Linux</option>
+                        <option <?php if ($oglas->os == 'Nema') echo "selected" ?>>Nema</option>
+                        <option <?php if ($oglas->os == 'Windows') echo "selected" ?>>Windows</option>
+                        <option <?php if ($oglas->os == 'Linux') echo "selected" ?>>Linux</option>
                     </select>
                 </div>
 
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="grupa">Garancija</label>
                     <div id="grupa" class="form-check d-inline">
-                        <input class="form-check-input" type="checkbox" id="gar" name="gar" <?php if ($oglas->garancija > 0) echo "checked"?> onclick="let garancija = document.getElementById('garancija'); if(this.checked){garancija.disabled = false; garancija.focus();}else{garancija.disabled = true;}">
-                        <input id="garancija" name="garancija" class="form-control" type="int" value="<?php echo $oglas->garancija?>" <?php if($oglas->garancija == 0) echo 'disabled="disabled"' ?>>
+                        <!-- cekira polje ako postoji garancija -->
+                        <input class="form-check-input" type="checkbox" id="gar" name="gar" <?php if ($oglas->garancija > 0) echo "checked" ?> onclick="let garancija = document.getElementById('garancija'); 
+                        //  u zavisnosti da li je chekbox cekiran ili nije, input polje za broj meseci je iskljuceno ili ukljuceno
+                         if(this.checked){garancija.disabled = false; garancija.focus();}else{garancija.disabled = true;}">
+                        <input id="garancija" name="garancija" class="form-control" type="int" value="<?php echo $oglas->garancija ?>" <?php if ($oglas->garancija == 0) echo 'disabled="disabled"' ?>>
                     </div>
                     <small class="info text-info">*Ukoliko je laptop još uvek pod garancijom čekirajte kvadratić</small>
                 </div>
 
                 <div class="form-group col-lg-6 col-md-12">
                     <label for="slob_opis">Slobodan opis laptopa</label>
-                    <textarea class="form-control" id="slob_opis" name="slob_opis" cols="30" rows="5"><?php echo $oglas->slob_opis?></textarea>
+                    <textarea class="form-control" id="slob_opis" name="slob_opis" cols="30" rows="5"><?php echo $oglas->slob_opis ?></textarea>
                     <small class="info text-info">*Što detaljnije opišite stanje laptopa koji oglašavate</small>
                 </div>
-
             </div>
 
             <div id="pr" class="form-row mb-3">
-
                 <div class="form-group col-md-6">
                     <label for="lokacija">Lokacija<span class="obavezna_polja"> *</span></label>
-                    <input class="form-control" type="text" id="lokacija" name="lokacija" value="<?php echo $oglas->lokacija?>">
+                    <input class="form-control" type="text" id="lokacija" name="lokacija" value="<?php echo $oglas->lokacija ?>">
                 </div>
-
-
             </div>
-
-            <div class="text-danger font-italic pb-3" id="greska_ispis"></div>
 
             <div class="row d-flex justify-content-center pb-5">
-                <input class="btn btn-primary w-25 mx-2" type="button" id="predaj_oglas" name="predaj_oglas" value="Izmeni oglas">                
+                <input class="btn btn-success w-25 mx-2" type="button" id="izmeni_oglas" name="izmeni_oglas" value="Izmeni oglas">
+                <input class="btn btn-warning w-25 mx-2" type="button" id="odustani" name="odustani" value="Odustani">
             </div>
-
         </fieldset>
     </form>
 </div>
 
+<!-- Nisam stavio ovu skriptu u poseban js fajl jer sadrzi PHP -->
 <script>
-    document.getElementById("predaj_oglas").addEventListener("click", function() {
+    document.getElementById("izmeni_oglas").addEventListener("click", function() {
         let oglas_id = "<?php echo $oglas->oglas_id ?>";
         let user_id = "<?php echo $oglas->user_id ?>";
         let slika = "<?php echo $oglas->slika ?>";
@@ -253,9 +249,10 @@ $oglas = oglasPodaci();
         let os = document.getElementById('os').value;
         let lokacija = document.getElementById('lokacija').value;
         let garancija = document.getElementById('garancija').value;
+        //ako garancija nije podesena stavlja je na 0
         garancija > 0 ? garancija : garancija = 0;
         let slob_opis = document.getElementById('slob_opis').value;
-
+        //funkcija koja salje podatke na nas API i izmenjuje oglas
         async function updateOglas() {
             const url = "api/oglasi/update.php";
             const data = {
@@ -280,7 +277,7 @@ $oglas = oglasPodaci();
                 lokacija: lokacija,
                 garancija: garancija,
                 user_id: user_id
-            };            
+            };
             let param = {
                 headers: {
                     "content-type": "application/json; charset=UTF-8"
@@ -288,12 +285,20 @@ $oglas = oglasPodaci();
                 body: JSON.stringify(data),
                 method: "PUT"
             };
-            const response = await fetch(url, param);            
+            const response = await fetch(url, param);
             const odgovor = await response.json();
             return odgovor;
         }
 
-        updateOglas().then(response => alert(response.message));
+        updateOglas().then(response => {
+            //po uspesnoj promeni, ispisuje alert i vara korisnika na profil
+            alert(response.message);
+            location.href = 'profil.php';
+        });
+    });
+    document.getElementById("odustani").addEventListener("click", function(){
+        //ako korisnik odustaje od promene, vraca ga na profilnu stranu
+        location.href = 'profil.php';
     });
 </script>
 

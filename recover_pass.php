@@ -60,12 +60,7 @@ if ($user->emailExists()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
         echo "Poruka: Nova šifra je poslata na Vaš email";
-        // echo json_encode(array("error" => false,"message" => "Korisnik je kreiran."), JSON_UNESCAPED_UNICODE);
-
     }
 } else {
     echo "Poruka: Mail ne postoji u bazi";
-    // echo json_encode(array("error" => false,"message" => "Korisnik nije kreiran."), JSON_UNESCAPED_UNICODE);
-
-
 }
