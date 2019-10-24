@@ -10,20 +10,20 @@ include_once './includes/head.php';
     include_once './config/database.php';
     include_once './includes/header.php';
 
-
+//Konekcija sa bazom
     $database = new Database();
     $db = $database->connect();
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-
+//Definiše se id trenutnog oglasa
     $oglas_id = $_GET['oglas_id'];
-
+//Upit za prikaz konkretnog oglasa
     $query = 'SELECT * FROM oglas WHERE oglas_id = :oglas_id';
     $stmt = $db->prepare($query);
     $stmt->execute(['oglas_id' => $oglas_id]);
     $oglas = $stmt->fetch();
-    
+//Definiše se korisnik koji je objavio oglas    
     $user_id = $oglas->user_id;
-
+//Upit za prikaz podataka o korisniku koji je objavio konkretni oglas
     $query1 = 'SELECT * FROM korisnici WHERE user_id = :user_id';
     $stmt1 = $db->prepare($query1);
     $stmt1->execute(['user_id' => $user_id]);
@@ -32,11 +32,12 @@ include_once './includes/head.php';
 ?>  
 
 <div class="container py-3">
-
+<!-- Prikaz slike laptopa -->
     <div class="row py-3">
         <div class="col-md-4">
             <img class="img-thumbnail " src="assets/images/<?php echo $oglas->slika ?>">
         </div>
+<!-- Prostor za prikaz dodatnih slika -->
         <div class="col-md-4">
             
         </div>
@@ -44,7 +45,7 @@ include_once './includes/head.php';
             
         </div>
     </div>
-
+<!-- Prikaz teksta oglasa u obliku tabele-->
     <div class="row">
         <div class="col-md-7">
             
@@ -106,7 +107,7 @@ include_once './includes/head.php';
                 </tr>
             </table>
         </div>
-
+<!-- Prikaz podataka o korisniku koji je objavio oglas -->
         <div class="col-md-5">
         <table id="tabela_korisnik" class="table table-sm table-striped w-100">
         <legend>Podaci o prodavcu</legend>

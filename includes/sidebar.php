@@ -4,12 +4,11 @@
     <?php
     include_once 'head.php';
     ?>
-    <title>Sidebar</title>
 </head>
 
 
 <div class="wrapper">
-
+<!-- Meni za pretragu se na manjim ekranima prikazuje tek kada se klikne na strelicu -->
     <nav id="sidebar" class="nanvbar navbar-expand-md">
 
         <div class="sidebar-header text-center py-3">
@@ -21,10 +20,10 @@
         </button>
 
         <div id="side_menu" class="collapse navbar-collapse">
-
+<!-- Meni je obliku liste koja sadrži formular, koji klikom na submit GET metodom šalje zahtev search.php fajlu. Lista se generiše iz nizova koji sadrže dozvoljene vrednosti koje mogu biti unete u bazu podataka -->
             <ul class="list-unstyled components">
                 <form action='index.php' method='GET'>
-
+<!-- Search bar za pretagu prema nazivu laptopa. Ima posebno submit dugme -->
                     <li class="px-2">
                         <legend class="h6">Po nazivu</legend>
                         <div class="input-group search-panel pb-3">
@@ -34,8 +33,7 @@
                             </span>
                         </div>
                     </li>
-
-
+<!-- Search bar za pretagu po rasponu cene laptopa -->
                     <li class="px-2 ">
                         <div class="filter-content">
                             <legend class="h6 mb-0">Po ceni</legend>
@@ -52,16 +50,15 @@
                         </div>
 
                     </li>
-
-
-
+<!-- Meni za filtriranje prema vrsti procesora -->
                     <li>
+                        <!-- Niz sa svim procesorima koji mogu biti uneti u bazu podataka -->
                         <?php $procesori = ['Intel Core i9', 'Intel Core i7', 'Intel Core i5', 'Intel Core i3', 'Intel Core M', 'Intel Pentium', 'Intel Atom', 'Intel Celeron', 'Intel Xeon', 'AMD (četvorojezgarni)', 'AMD (dvojezgarni)']; ?>
 
                         <a href="#procesorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Procesor</a>
 
                         <ul class="collapse list-group" id="procesorSubmenu">
-
+                            <!-- Preko for petlje se ispisuje checkbox element za svaki naziv procesora koji je smešten u niz, tj. koji može biti smesten u bazu -->
                             <?php for ($i = 0; $i < count($procesori); $i++) { ?>
 
                                 <li class="px-3 py-1 list-group-item">
@@ -76,7 +73,7 @@
 
                         </ul>
                     </li>
-
+<!-- Meni za filtriranje po količini RAM memorije. Princip za ispis checkboxa je isti kao i za procesore -->
                     <li>
                         <?php $ram_memorija = ['1', '2', '4', '6', '8', '12', '16', '>16']; ?>
 
@@ -97,7 +94,7 @@
 
                         </ul>
                     </li>
-
+<!-- Meni za filtriranje prema veličini ekrana. Princip za ispis checkboxa je isti kao i za procesore -->
                     <li>
                         <?php $ekrani = ['12', '14', '15.6', '17.3']; ?>
 
@@ -118,7 +115,7 @@
 
                         </ul>
                     </li>
-
+<!-- Meni za filtriranje prema vrsti grafičke kartice. Princip za ispis checkboxa je isti kao i za procesore -->
                     <li>
                         <?php $graficka = ['Integrisana', 'NVidia', 'ATI Radeon']; ?>
 
@@ -140,8 +137,7 @@
                         </ul>
 
                     </li>
-
-
+<!-- Meni za filtriranje po količini memorije HDD-a. Princip za ispis checkboxa je isti kao i za procesore -->
                     <li>
                         <?php $hdd = ['nema','128', '256', '512', '1024', '2048']; ?>
 
@@ -168,7 +164,7 @@
 
                         </ul>
                     </li>
-
+<!-- Meni za filtriranje po količini memorije SSD-a. Princip za ispis checkboxa je isti kao i za procesore -->
                     <li>
                         <?php $ssd = ['nema','128', '256', '512', '1024']; ?>
 
@@ -195,7 +191,7 @@
 
                         </ul>
                     </li>
-
+<!-- Meni za filtriranje prema vrsti operativnog sistema. Princip za ispis checkboxa je isti kao i za procesore -->
                     <li>
                         <?php $os = ['Nema', 'Windows', 'Linux']; ?>
 
@@ -217,7 +213,9 @@
                         </ul>
                     </li>
                     <div class="text-center">
+                        <!-- Ukoliko se klikne na submit dugme fajl search.php vrši pretragu -->
                         <button id="pretraga1" name="pretraga1" class="btn mt-3  text-light" type="submit">Pretraga</button>
+                         <!-- Ukoliko se klikne na reset dugme pretraga se poništava (redirektuje se na početnu stranicu) i laptop oglasi se prikazuju po default redosledu (od najnovijeg ka najstarijem) -->                  
                         <button id="reset1" class="btn btn-danger  mt-3 text-light" type="reset"><a href="./index.php">Resetuj pretragu</a></button>
                     </div>
 

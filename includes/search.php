@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <head>
-    <style>
-
-    </style>
+<?php
+include_once './includes/head.php';
+?>
 </head>
 
 <?php
-
-include_once './includes/head.php';
 include_once 'sidebar.php';
 include_once './config/database.php';
+
+// Uspostavlja se konekcija sa bazom
 
 $database = new Database();
 $db = $database->connect();
@@ -18,7 +18,7 @@ $db = $database->connect();
 
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-// proverava da li postoji search, ako ne on ide dole i ispisuje sve iz baze
+// Proverava da li postoji search, ako ne postiji on ide dole i ispisuje sve iz baze
 if (
     isset($_GET['pretraga']) && $_GET['pretraga'] !== "" ||
     isset($_GET["min"]) ||
@@ -33,7 +33,8 @@ if (
 ) {
     $query = "
         SELECT * FROM oglas WHERE 1
-	";
+    ";
+    //Ukoliko je unet naziv za pretragu
     if (isset($_GET['pretraga']) && $_GET['pretraga'] !== "") {
         $sanitize = htmlspecialchars(strip_tags($_GET['pretraga']));
         $pretraga = '%' . $sanitize . '%';
@@ -54,7 +55,7 @@ if (
         AND cena <= '" . $_GET["max"] . "'
 		";
     }
-
+    //Ukoliko su obeleženi checkboxovi
     if (isset($_GET["cpu"])) {
 
         $filter = implode("','", $_GET["cpu"]);
@@ -103,11 +104,13 @@ if (
     $stmt->execute();
     $oglasi = $stmt->fetchAll();
 
-    // bolje se empty nego isset, empty proverava da li je niz prazan, ako jeste onda ce da ispise gresku dole, ako nije napravice kartice
+    // Ako postoji laptop prema zadatom kriterijumu empty proverava da li je niz prazan, ako jeste (ne postoji laptop prema zadatim kriterijumima) onda ce da ispiše sadržaj dole, ako nije napraviće kartice
     if (!empty($oglasi)) {
         foreach ($oglasi as $oglas) {
+        //Dodaje u karticu skraćeni opis laptopa (40 karaktera) uzet iz kolone slobodan opis
         $opis = $oglas->slob_opis;
         $kratak_opis=substr($opis,0,40);
+        //Prave se kartice
         echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
         <img class="card-img-top" src="assets/images/'.$oglas->slika.'">
         <div class="card-body">
@@ -131,35 +134,41 @@ if (
         </div>
     </div>';
         }
-    } else {
+    } 
+    //Ukoliko ne postoji laptop prema zadatim kriterijumima filtriranja, prikazuje se sledeća poruka
+    else {
         echo '<div><p class="lead text-danger mx-2 px-5 py-2 bg-light">Nema rezultata za prikaz</p></div>';
     }
 } else {
-    //ispisuje sve podatke iz tabele ako search nije postavljen
+
+//Ispisuje sve podatke iz tabele ako search nije postavljen
     
     $sql = "SELECT * FROM oglas";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    // $oglasi = $stmt->fetchAll();
 
+//Pagination
+// Ovde se menja broj oglasa koji se prikazuju na jednoj stranici
     $rezultata_po_stranici = 5;
+//Određuje ukupan broj oglasa i broj stranica za prikaz
     $broj_oglasa = $stmt->rowCount();
     $broj_stranica = ceil($broj_oglasa/$rezultata_po_stranici);
-
+//Ukoliko stranica nije zahtevana ona se postavlja na vrednost 1 (prikaz prvih x laptopova)
     if(!isset($_GET['page'])){
         $page = 1;
     } else {
         $page = $_GET['page'];
     }
-
+//Određuje se početni oglas zadate stranice
     $pocetni_oglas = ($page-1)*$rezultata_po_stranici;
-
+//Upit za prikaz oglasa. Limitom je određen prvi oglas zadate stranice i broj narednih oglasa iz baze koji se prikazuju
     $sql = "SELECT * FROM oglas ORDER BY oglas_id DESC LIMIT " . $pocetni_oglas . ',' . $rezultata_po_stranici;
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $oglasi = $stmt->fetchAll();
 
     foreach ($oglasi as $oglas) {
+    //opet kratak oglas
     $opis = $oglas->slob_opis;
     $kratak_opis=substr($opis,0,40);
         echo '<div id="kartica" class="card d-flex justify-content-around mb-3 mx-2">
@@ -187,13 +196,16 @@ if (
     }
         echo '<div class="container d-flex justify-content-center">
             <ul class="pagination my-3"';
+            //Ukoliko pagination bar nije aktiviran, vrednost trenutne stranice se postavlja na 1. Ovo je neophodno kako bi se css svojstva prve ikonice pagination bara promenila iako nije kliknuto na nju
             if(!isset($_GET['page'])){
                 $_GET['page'] = 1;
             }
+        //Promena css svojstava za ikonicu pagination bara koja je trenutno aktivna
         for($page = 1; $page <= $broj_stranica; $page++){     
+            //Definiše se css klasa aktivne ikonice
             $trenutna = 'trenutna';           
             if($page == $_GET['page']){        
-                echo '<li class="page-item"><a class="page-link '.$trenutna.'" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
+                echo '<li class="page-item"><a class="page-link ' . $trenutna . '" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
             }else{
                 echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $page . '">' . $page  . '</a></li>';
             }

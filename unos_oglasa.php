@@ -1,9 +1,6 @@
 <head>
     <?php
-
     include_once './includes/head.php';
-    // include_once './config/database.php';
-
     ?>
     <title>Laptopdrom | Unos oglasa</title>
 </head>
@@ -13,6 +10,7 @@
 include_once './includes/header.php';
 ?>
 <div class="container">
+<!-- Formular za unos oglasa. Radi sigurnosti se koristi POST metod -->
     <form id="unos_oglasa" action="create_oglas.php" method="post" enctype="multipart/form-data" class="bg-light">
         <fieldset class="p-3 my-3">
             <legend>Unos oglasa <span class="text-info info">Polja obeležena zvezdicom su obavezna</span></legend>
@@ -37,7 +35,7 @@ include_once './includes/header.php';
             </div>
 
             <div class="form-row mb-3">
-
+<!-- Unos podataka u obavezna polja se najčesće vrši preko select elementa što obezbeđuje lakšu pretragu i filtriranje -->
                 <div class="form-group col-lg-3 col-md-6">
                     <label for="cpu">Procesor<span class="obavezna_polja"> *</span></label>
                     <select id="cpu" name="cpu" class="form-control">
@@ -168,6 +166,7 @@ include_once './includes/header.php';
                     <label for="grupa">Garancija</label>
                     <div id="grupa" class="form-check d-inline">
                         <input class="form-check-input" type="checkbox" id="gar" name="gar" onclick="let garancija = document.getElementById('garancija'); if(this.checked){garancija.disabled = false; garancija.focus();}else{garancija.disabled = true;}">
+                        <!-- Polje za unos vrednosti garancije u mesecima se otvara jedino ako je čekirano polje iznad njega -->
                         <input id="garancija" name="garancija" class="form-control" type="int" placeholder="u mesecima" disabled="disabled">
                     </div>
                     <small class="info text-info">*Ukoliko je laptop još uvek pod garancijom čekirajte kvadratić</small>
@@ -192,16 +191,17 @@ include_once './includes/header.php';
             </div>
 
             <div class="text-danger font-italic pb-3" id="greska_ispis"></div>
-
             <div class="row d-flex justify-content-center pb-5">
+                <!-- Klikom na submit podaci iz formulara se šalju fajlu create_oglas.php koji pre upisivanja u bazu vrsi proveru i sanitaciju unetih podataka -->
                 <input class="btn btn-primary w-25 mx-2" type="submit" id="predaj_oglas" name="predaj_oglas" value="Predaj oglas">
+                <!-- Klikom na sledeće dugme uneti podaci se brišu -->
                 <input class="btn btn-danger w-25" type="reset" id="reset_oglas" name="reset_oglas" value="Obrisi podatke">
             </div>
 
         </fieldset>
     </form>
 </div>
-
+<!-- script za validaciju unetih podataka. Proverava da li su uneti obavezni elementi i njihov opseg -->
 <script src="./assets/js/validation_script.js"></script>
 
 <?php
