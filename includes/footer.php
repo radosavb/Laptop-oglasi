@@ -9,7 +9,7 @@
                     <li style="display:inline; margin-right: 8px;"><a href="#">Pretraga</a></li>
                     <li style="display:inline; margin-right: 8px;"><a href="#">Ostalo</a></li>
                     <li style="display:inline; margin-right: 8px;"><a href="#">Objavi oglas</a></li>
-                    <li style="display:inline; margin-right: 8px;"><a href="#">Registruj se</a></li>
+                    <li style="display:inline; margin-right: 8px;"><a href="./register.php">Registruj se</a></li>
                 </ul>
             </div>
             <!-- Linkovi ka stranicama u okviru sajta. Prikazuju se samo kada je rezolucija ekrana veća od md veličine po bootstrap kategorijama -->
@@ -21,7 +21,7 @@
                     <li><a href="#">Pretraga</a></li>
                     <li><a href="#">Ostalo</a></li>
                     <li><a href="#">Objavi oglas</a></li>
-                    <li><a href="#">Registruj se</a></li>
+                    <li><a href="./register.php">Registruj se</a></li>
                 </ul>
             </div>
             <!-- Logo sajta -->
@@ -40,11 +40,11 @@
         <!-- Linkovi ka socijalnim mrežama. Korišćene ikonice font-awsome -->
         <div id="social_media" class="row pt-2 pb-5">
             <div class="wrapper col-md-6 offset-md-3 d-flex justify-content-center">
-                <a target="_blank" href="#"><i class="fa fa-3x fa-facebook-square"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-3x fa-twitter-square"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-3x fa-laptop"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-3x fa-github-square"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-3x fa-linkedin"></i></a>
+                <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-3x fa-facebook-square"></i></a>
+                <a target="_blank" href="https://twitter.com/?lang=en"><i class="fa fa-3x fa-twitter-square"></i></a>
+                <a target="_blank" href="./index.php"><i class="fa fa-3x fa-laptop"></i></a>
+                <a target="_blank" href="https://github.com"><i class="fa fa-3x fa-github-square"></i></a>
+                <a target="_blank" href="https://rs.linkedin.com/"><i class="fa fa-3x fa-linkedin"></i></a>
                 
             </div>
         </div>

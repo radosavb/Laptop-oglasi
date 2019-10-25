@@ -7,10 +7,10 @@
 </head>
 <!-- Naslov sajta -->
 <header>
-  <h1 id="naslov" class="display-4 pt-4 my-0 text-center">LAPTOPDROM</h1>
+  <h1 id="naslov" class="my-0 pt-3">LAPTOPDROM</h1>
 </header>
   <!-- Navbar sa sticky pozicioniranjem. Nakon scrolovanja naslova ostaje fiksiran za vrh stranice.  Na ekranima sa manjom rezolucijom "kolapsuje" i prikazuje se opet klikom na dugme-->
-<nav id="navbar" class="navbar bg-primary navbar-dark navbar-expand-lg sticky-top">
+<nav id="navbar" class="navbar bg-primary navbar-dark navbar-expand-lg">
   <!-- Logo sajta -->
   <a style="border-bottom:none;" class="navbar-brand" href="index.php"><img src="assets\images\logow.png" width="40px"></a>
   <!-- Dugme za collapse -->
@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse" id="meni">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Laptopovi</a>
+        <a class="nav-link text-white" href="./index.php">Laptopovi</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white text-nowrap" href="#">O nama</a>

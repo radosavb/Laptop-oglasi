@@ -38,6 +38,9 @@
     font-family: font5;
     color: rgb(29, 100, 158);
     text-shadow: 0 0 15px rgb(87, 159, 211), 0 0 10px rgba(87, 160, 211, .7);
+    max-width: 100%;
+    font-size: 50px;
+    text-align: center;
 }
 
 #prekrivac {
@@ -48,6 +51,12 @@
     z-index: 9999;
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+    #prekrivac {
+        display: none;
+    }
 }
 
 .krug {
@@ -80,7 +89,7 @@
     text-align: center;
     line-height: 100px;
     position: absolute;
-    top: 300px;
+    top: 20%;
 }
 
 #ucitavanje .slovo {
@@ -160,6 +169,15 @@ a {
 #navbar {
     background: rgb(29, 100, 158) !important;
     border-bottom: 1px solid #39ff14;
+    position: sticky;
+    top: 0;
+    z-index: 9998;
+}
+
+@media only screen and (max-width: 800px) {
+    #navbar {
+        position: relative;
+    }
 }
 
 #navbar a:hover {
@@ -316,30 +334,32 @@ label {
 #unos_oglasa label {
     font-weight: bold;
 }
-.obavezna_polja{
+
+.obavezna_polja {
     color: red;
 }
-.info{
-    font-size: 11px;          
+
+.info {
+    font-size: 11px;
 }
 
 #tabela_pojedinacno td:first-of-type,
-#tabela_korisnik td:first-of-type{
+#tabela_korisnik td:first-of-type {
     font-weight: bold;
     width: 200px;
 }
 
 #uspeh,
 #neuspeh {
-  position: fixed;
-  left: 100px;
-  top: 180px;
+    position: fixed;
+    left: 100px;
+    top: 180px;
 }
 
 #neuspeh1 {
-  position: fixed;
-  left: 100px;
-  top: 230px;
+    position: fixed;
+    left: 100px;
+    top: 230px;
 }
 
 footer a {
@@ -411,13 +431,14 @@ footer {
     display: none;
 }
 
-#korisnickiProfil table td:first-child{
-    width:25%;
+#korisnickiProfil table td:first-child {
+    width: 25%;
 }
-#nisteUlogovani{
+
+#nisteUlogovani {
     display: none;
 }
 
-#oglasiTabela tr td:first-child{
-    width:100px;
+#oglasiTabela tr td:first-child {
+    width: 100px;
 }
