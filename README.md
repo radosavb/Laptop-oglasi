@@ -52,11 +52,11 @@ Pošto je u pitanju sajt koji je napravljen kao deo obuke, većina linkova ka st
 + korisnici.php - klasa Korisnik sa svim podacima iz baze i metodama
 + oglasi.php - klasa Oglas sa svim podacima i metodama
 
-### /php-jwt-master - podešavanja za JWT
+##### /php-jwt-master - podešavanja za JWT
 
-### /PHPmailer - podešavanja za salje maila sa resetovanom šifrom
-### /recover_pass.php - stranica za generisanje i slanje nove šifre korisniku
+##### /PHPmailer - podešavanja za salje maila sa resetovanom šifrom
+##### /recover_pass.php - stranica za generisanje i slanje nove šifre korisniku
 
-### /profil/php - stranica koja pokazuje informacije o korisniku i njegove oglase, preko nje ima mogućnost da promeni oglas ili da ga obriše
+##### /profil/php - stranica koja pokazuje informacije o korisniku i njegove oglase, preko nje ima mogućnost da promeni oglas ili da ga obriše
 
-## /register.php - stranica za registrovanje korisnika
+##### /register.php - stranica za registrovanje korisnika

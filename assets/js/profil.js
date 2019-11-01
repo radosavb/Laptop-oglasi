@@ -41,7 +41,7 @@ getUser().then(response => {
 });
 
 async function getUser() {
-    const jwt = getCookie();
+    let jwt = getCookie();
     const url = "api/korisnici/validate_token.php";
     const data = {
         jwt: jwt

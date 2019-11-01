@@ -442,3 +442,33 @@ footer {
 #oglasiTabela tr td:first-child {
     width: 100px;
 }
+/* Podesavanje tabele na profilu za manje ekrane */
+@media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+
+                #oglasiTabela table,
+                #oglasiTabela thead,
+                #oglasiTabela tbody,
+                #oglasiTabela th,
+                #oglasiTabela td,
+                #oglasiTabela tr {
+                    display: block;
+                }
+                
+                #oglasiTabela thead tr {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+
+                #oglasiTabela tr {
+                    border: 1px solid #ccc;
+                }
+
+                #oglasiTabela td {                
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;                
+                }           
+                
+            }

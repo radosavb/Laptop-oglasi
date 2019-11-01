@@ -1,7 +1,12 @@
-document.getElementById("login_submit").addEventListener("click", function(e) {
+document.getElementById("login_submit").addEventListener("click", function (e) {
 
     let loginEmail = document.getElementById("login_email").value.trim();
     let loginSifra = document.getElementById("login_sifra").value.trim();
+
+    if (loginEmail === "" || loginEmail === null || loginSifra === "" || loginSifra === null) {
+        alert("Unesite email i šifru.");
+        return;
+    }
 
     //brise cookie
     setCookie("jwt", "", 1);
@@ -44,6 +49,8 @@ document.getElementById("login_submit").addEventListener("click", function(e) {
                 //responce je return od getUSername funkcije
                 .then(response => {
                     document.getElementById("ime_korisnika").textContent = response;
+                    //ovo je dodato jer kad smo okacini na server, ime od profila se ucitavalo tek posle refresha
+                    location.reload();
                 })
         })
         .catch(error => console.log(error));
@@ -60,9 +67,13 @@ function setCookie(cname, cvalue, exdays) {
 //funkcija da se izvuce vrednost postavljenog cookia
 function getCookie() {
     let cookie = document.cookie;
-    let split = cookie.split('=');
-    let jwt = split[1];
-    return jwt;
+    let splitCokie = cookie.split(";");
+    for (let i = 0; i < splitCokie.length; i++) {
+        if (splitCokie[i].indexOf("jwt=") > -1) {
+            let jwt = splitCokie[i].substr(splitCokie[i].indexOf("jwt=") + 4);
+            return jwt;
+        }
+    }
 }
 
 async function getUsername() {
@@ -80,15 +91,14 @@ async function getUsername() {
 
     const response = await fetch("api/korisnici/validate_token.php", paramJWT);
     const odgovor = await response.json();
-    let ime = odgovor.data.ime;
-    return ime;
+    return odgovor.data.ime;
 
 }
 //pokazuje ulogovan profil
 function showProfile() {
     document.getElementById("login_form").style.display = "none";
     document.getElementById("forgot_pass").style.display = "none";
-    document.getElementById("profil").style.display = "block";    
+    document.getElementById("profil").style.display = "block";
 }
 //pokazuje form za login
 function showLogin() {
@@ -109,7 +119,7 @@ if (getCookie() === undefined || getCookie() === "" || getCookie() === "undefine
         });
 }
 //odjavljuje se i brise cookie
-document.getElementById("odjava").addEventListener("click", function() {
+document.getElementById("odjava").addEventListener("click", function () {
     if (confirm("Da li ste sigurni da želite da se odjavite?")) {
         setCookie("jwt", "", 1);
         showLogin();

@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-6">
                 <h3>Vaši oglasi:</h3>
-                <table id="oglasiTabela" class="table table-responsive table-bordered">                  
+                <table id="oglasiTabela" class="table table-responsive table-bordered">
                 </table>
             </div>
         </div>
